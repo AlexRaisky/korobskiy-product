@@ -353,19 +353,38 @@
 <div class="grid">
   <div class="card">
     <h3>MailingDay 2024</h3>
-    <img src="https://sun9-30.userapi.com/impg/vwGM2v8egSD2XFor130R07FneMqlDz3w8pu-aw/wGYuu-aaXOU.jpg?size=320x240&quality=95&sign=302c86e123eed60aa81abcf083c3876b&c_uniq_tag=SvwpLcXkeJ_-QxRyru2xZH1t1ChUPDinUI8wZgF1OUw&type=video_thumb"
-     alt="MailingDay 2024 — Разработка собственного технологического решения"
-     style="width:100%; border-radius:12px; margin-bottom:16px;">
     <p>
        Разработка собственного технологического решения
     </p>
-    <p>
-      <a href="https://vkvideo.ru/video-119322127_456239018" target="_blank">
-        ▶ Смотреть выступление
-      </a>
-    </p>
+  <!-- Контейнер видео -->
+<div id="vkvid-container" style="position:relative;width:100%;max-width:640px;cursor:pointer;">
+  
+  <!-- Обложка (миниатюра) -->
+  <img id="vkvid-thumb"
+       src="THUMBNAIL_URL.jpg"
+       alt="Видео превью"
+       style="width:100%;display:block;">
+
+  <!-- Кнопка Play -->
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+              font-size:60px;color:white;text-shadow:0 0 10px rgba(0,0,0,0.7);">
+    ▶️
+  </div>
+
+</div>
+
+<script>
+document.getElementById("vkvid-container").addEventListener("click", function() {
+  // URL встроенного плеера VK Video
+  this.innerHTML = '<iframe src="https://vkvideo.ru/video_ext.php?oid=OID&id=ID&hd=2" ' +
+                   'style="width:100%;height:360px;border:0;" ' +
+                   'allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';
+});
+</script>
   </div>
 </div>
+
+
 
 </div>
 </body>
