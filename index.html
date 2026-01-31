@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Коробский Александр — Product Leader</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: #0b0c10;
+      color: #e8e9ef;
+      line-height: 1.65;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 90px 24px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin: 96px 0 28px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      max-width: 860px;
+      font-size: 18px;
+      opacity: 0.92;
+    }
+
+    .subtitle {
+      font-size: 21px;
+      opacity: 0.75;
+      margin-bottom: 32px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-photo {
+      width: 260px;
+      height: 260px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, #1c1d2a, #0f1018);
+      padding: 4px;
+    }
+
+    .hero-photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #151621;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-photo-caption {
+      margin-top: 12px;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 44px;
+    }
+
+    .card {
+      background: #151621;
+      border-radius: 18px;
+      padding: 30px;
+    }
+
+    /* METRICS */
+    .metric {
+      font-size: 38px;
+      font-weight: 600;
+    }
+
+    .metric-label {
+      opacity: 0.7;
+      margin-top: 6px;
+    }
+
+    .footer {
+      margin-top: 140px;
+      padding-top: 44px;
+      border-top: 1px solid #2b2c3a;
+      opacity: 0.75;
+    }
+
+    strong {
+      color: #ffffff;
+    }
+
+    a {
+      color: #8ab4ff;
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+    @media (max-width: 860px) {
+      .container {
+        padding: 64px 20px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-top: 72px;
+      }
+
+      p {
+        font-size: 17px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-photo {
+        width: 200px;
+        height: 200px;
+      }
+
+      .metric {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>Коробский Александр</h1>
+      <div class="subtitle">
+        Principal / Head-level Product Manager<br>
+        Клиентоцентричные платформы · Revenue & Retention · FinTech / BigTech
+      </div>
+
+      <p>
+        Я работаю на уровне <strong>архитектуры бизнеса</strong> —
+        там, где продукт, данные и клиентское взаимодействие
+        формируют долгосрочное конкурентное преимущество.
+      </p>
+
+      <p>
+        Моя зона ответственности — создание систем,
+        которые позволяют бизнесу <strong>масштабироваться,
+        адаптироваться к рынку и принимать стратегические решения
+        на основе понимания клиента</strong>.
+      </p>
+    </div>
+
+    <div>
+      <div class="hero-photo">
+        <div class="hero-photo-inner">
+          <img src="https://sun9-81.vkuserphoto.ru/s/v1/ig2/JpR5fkvttHLF3PFtKzWNq3wEXwwOiVhsFFDjZIlXo-iaXTFziEBnGR0nd63u70pV2oB5FhuX50D0PnHgE4Rt2ZUM.jpg" alt="Коробский Александр">
+        </div>
+      </div>
+      <div class="hero-photo-caption">
+        Product Leadership · CRM · Customer Engagement
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <h2>Мой подход</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Клиент как центр системы</h3>
+      <p>Продукты проектируются вокруг поведения, потребностей и мотивации клиента, а не оргструктуры.</p>
+    </div>
+    <div class="card">
+      <h3>Выручка как следствие</h3>
+      <p>Рост строится через retention, LTV и повторную ценность.</p>
+    </div>
+    <div class="card">
+      <h3>Адаптивность бизнеса</h3>
+      <p>Системы должны позволять менять стратегию без пересборки продукта.</p>
+    </div>
+  </div>
+
+  <!-- HOW I THINK -->
+  <h2>How I Think</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Система важнее метрик</h3>
+      <p>Краткосрочный рост не должен разрушать доверие и retention.</p>
+    </div>
+    <div class="card">
+      <h3>Retention как защита</h3>
+      <p>Lifecycle снижает зависимость от трафика и внешних факторов.</p>
+    </div>
+    <div class="card">
+      <h3>Customer insight → решения</h3>
+      <p>Глубокое понимание клиента ускоряет стратегические решения.</p>
+    </div>
+  </div>
+
+  <!-- CURRENT EXPERIENCE -->
+  <h2>Текущий опыт и зона ответственности</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>CRM и платформенные решения</h3>
+      <p>
+        Развитие CRM как платформы customer engagement:
+        данные, коммуникации, продажи, аналитика.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Revenue & Retention</h3>
+      <p>
+        Переход от лидогенерации к управлению
+        жизненным циклом клиента и LTV.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Международные рынки</h3>
+      <p>
+        Курирую внедрение и развитие отдельного готового CRM-решения
+        для международных рынков, адаптируя процессы под локальную специфику.
+      </p>
+    </div>
+  </div>
+
+  <!-- FIRST 6 MONTHS -->
+  <h2>What I’m hired for in first 6 months</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Month 1–2 — Диагностика</h3>
+      <p>
+        Аудит продукта, CRM и бизнес-процессов:
+        продажи, клиентские сценарии, данные и контуры принятия решений.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Month 3–4 — Стратегия</h3>
+      <p>
+        Формирование target-модели и приоритетов развития платформы.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Month 5–6 — Первые сдвиги</h3>
+      <p>
+        Запуск ключевых изменений и первые измеримые результаты.
+      </p>
+    </div>
+  </div>
+
+  <!-- STRATEGIC DECISIONS -->
+  <h2>Key Strategic Decisions</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Lifecycle вместо лидов</h3>
+      <p>Фокус на повторную ценность и долгосрочные отношения.</p>
+    </div>
+    <div class="card">
+      <h3>Единый customer view</h3>
+      <p>Основа аналитики, персонализации и стратегии.</p>
+    </div>
+    <div class="card">
+      <h3>CRM как управляемый слой</h3>
+      <p>Не инструмент, а слой управления бизнес-взаимодействием.</p>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <h2>Измеримые результаты</h2>
+  <div class="grid">
+    <div class="card"><div class="metric">5% → 17%</div><div class="metric-label">Рост retention</div></div>
+    <div class="card"><div class="metric">95%+</div><div class="metric-label">Идентифицированные продажи</div></div>
+    <div class="card"><div class="metric">×2</div><div class="metric-label">Рост выручки</div></div>
+    <div class="card"><div class="metric">4</div><div class="metric-label">Международных внедрения</div></div>
+    <div class="card"><div class="metric">↓ Time-to-change</div><div class="metric-label">Скорость адаптации</div></div>
+    <div class="card"><div class="metric">∞</div><div class="metric-label">Масштабируемость</div></div>
+  </div>
+
+  <div class="footer">
+    <p>
+      📍 Москва · 📧 <a href="mailto:k.a.e.5@yandex.ru">k.a.e.5@yandex.ru</a><br>
+      Интересны роли, где продукт — это архитектура роста и устойчивости.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
