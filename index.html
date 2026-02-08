@@ -166,6 +166,75 @@
         font-size: 32px;
       }
     }
+
+    /* HIRING / COLLAPSIBLE CARDS */
+details.card {
+  padding: 0;            /* переопределяем, чтобы summary выглядел аккуратно */
+}
+
+details.card summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 30px;
+  border-radius: 18px;
+  user-select: none;
+  position: relative;
+}
+
+details.card summary::-webkit-details-marker {
+  display: none;
+}
+
+details.card summary::after {
+  content: "▾";
+  position: absolute;
+  right: 22px;
+  top: 26px;
+  font-size: 18px;
+  opacity: 0.75;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+details.card[open] summary::after {
+  transform: rotate(180deg);
+  opacity: 0.95;
+}
+
+.hiring-meta {
+  opacity: 0.7;
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.hiring-body {
+  padding: 0 30px 28px 30px;
+}
+
+.hiring-body ul {
+  padding-left: 22px;
+  margin: 14px 0 0 0;
+}
+
+.hiring-body li {
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+/* MOBILE: чтобы summary не "ломался" */
+@media (max-width: 860px) {
+  details.card summary {
+    padding: 24px;
+  }
+  details.card summary::after {
+    right: 16px;
+    top: 22px;
+  }
+  .hiring-body {
+    padding: 0 24px 22px 24px;
+  }
+}
   </style>
 </head>
 
@@ -253,61 +322,109 @@
     </div>
   </div>
 
-  <!-- HIRING EXPERIENCE / ДЛЯ НАЙМА -->
+<!-- HIRING / ДЛЯ НАЙМА -->
 <h2>Для найма</h2>
 
 <div class="grid">
 
-  <!-- Банки.ру -->
-  <div class="card">
-    <h3>Банки.ру — Lead / Senior Product Manager</h3>
-    <p><strong>2023 — настоящее время</strong></p>
-    <ul>
-      <li>Формирование стратегии Customer Engagement & CRM как revenue-платформы.</li>
-      <li>Перевод бизнес-логики с лидогенерации на lifecycle- и retention-подход.</li>
-      <li>Управление омниканальными каналами: email, SMS, push, мессенджеры, контактный центр, in-app.</li>
-      <li>Интеграция данных, аналитики и платформенных модулей для единого customer view.</li>
-    </ul>
-    <p><strong>Ключевые результаты:</strong></p>
-    <ul>
-      <li>Рост retention с 5% до 17%.</li>
-      <li>99% продаж связаны с идентифицированными клиентами.</li>
-      <li>Рост выручки ×2, маржинальности ×1,5.</li>
-    </ul>
-  </div>
+  <!-- Banki.ru — Senior Product / Project Manager -->
+  <details class="card">
+    <summary>
+      <strong>Banki.ru</strong>
+      <div class="hiring-meta">Senior Product / Project Manager · Sep 2023 – Present</div>
+    </summary>
 
-    <!-- (Опционально) Дополнительный опыт -->
-  <div class="card">
-    <h3>Senior Business Analyst → Product Track</h3>
-    <p><strong>2022 — 2023</strong></p>
-    <ul>
-      <li>Аналитика бизнес-процессов и проектирование продуктовых решений.</li>
-      <li>Формирование функциональных и технических требований.</li>
-      <li>Автоматизация аналитики и продуктовых воронок.</li>
-    </ul>
-    <p><strong>Ключевые результаты:</strong></p>
-    <ul>
-      <li>Запуск самописной CRM-платформы.</li>
-      <li>Систематизация продуктовой аналитики и процессов продаж.</li>
-    </ul>
-  </div>
+    <div class="hiring-body">
+      <ul>
+        <li>
+          <strong>Перевёл продуктовую логику от лидогенерации к retention-driven продажам</strong> —
+          <strong>retention вырос с 5% до 17%</strong> за период работы в роли —
+          за счёт пересборки lifecycle-механик, сегментации и сценариев повторных продаж.
+        </li>
 
-  <!-- GBC Team -->
-  <div class="card">
-    <h3>GBC Team — CRM Consultant / Project Manager</h3>
-    <p><strong>2020 — 2022</strong></p>
-    <ul>
-      <li>Внедрение CRM-решений (в основном Salesforce) для корпоративных клиентов.</li>
-      <li>Участие в проектах для финансовых и технологических компаний.</li>
-      <li>Построение процессов внедрения, кастомизации и сопровождения.</li>
-    </ul>
-    <p><strong>Ключевые результаты:</strong></p>
-    <ul>
-      <li>6–7 enterprise-проектов CRM разного масштаба.</li>
-      <li>3–4 проекта полного цикла под личную ответственность.</li>
-      <li>Участие в сложных интеграциях с бизнес-процессами заказчиков.</li>
-    </ul>
-  </div>
+        <li>
+          <strong>Довёл идентификацию продаж до 99% (sale → конкретный пользователь)</strong> —
+          появилась надёжная база для <strong>LTV / cohort / retention аналитики</strong> —
+          за счёт выстраивания единого customer view и связки данных CRM ↔ продукт ↔ продажи ↔ коммуникации.
+        </li>
+
+        <li>
+          <strong>Увеличил выручку в 2 раза и маржинальность в 1,5 раза</strong> —
+          через продуктовые и монетизационные улучшения —
+          за счёт управления воронками, персонализации и оптимизации customer engagement.
+        </li>
+
+        <li>
+          <strong>Увеличил диверсификацию продуктовой выручки</strong> —
+          снизил зависимость от единичных каналов привлечения —
+          за счёт развития портфеля сценариев и механик монетизации внутри lifecycle.
+        </li>
+
+        <li>
+          <strong>Запустил и развиваю международное внедрение CRM (4 рынка)</strong> —
+          <strong>Мексика, Армения, Казахстан, Филиппины</strong> —
+          за счёт курирования внедрения готового решения и адаптации процессов под локальную специфику
+          (отдельный проект, не “продолжение” самописной CRM).
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Banki.ru — Senior Business Analyst -->
+  <details class="card">
+    <summary>
+      <strong>Banki.ru</strong>
+      <div class="hiring-meta">Senior Business Analyst · Jul 2022 – Aug 2023</div>
+    </summary>
+
+    <div class="hiring-body">
+      <ul>
+        <li>
+          <strong>Спроектировал и запустил самописную CRM-платформу</strong> —
+          <strong>за ~13 месяцев (Jul 2022 – Aug 2023)</strong> довёл решение до уровня,
+          сравнимого по эффекту с enterprise CRM —
+          за счёт моделирования процессов (AS-IS/TO-BE), формализации требований,
+          BI-контуров и автоматизации customer journeys.
+        </li>
+
+        <li>
+          <strong>Систематизировал продуктовую аналитику и контуры продаж</strong> —
+          повысил управляемость решений и качество принятия приоритетов —
+          за счёт сквозных отчётов, согласования сущностей данных и автоматизации ключевых воронок.
+        </li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- GBC Team — CRM Consultant / Project Manager -->
+  <details class="card">
+    <summary>
+      <strong>GBC Team</strong>
+      <div class="hiring-meta">CRM Consultant / Project Manager · Mar 2020 – Jul 2022</div>
+    </summary>
+
+    <div class="hiring-body">
+      <ul>
+        <li>
+          <strong>Реализовал 6–7 внедрений Salesforce CRM для enterprise-клиентов</strong> —
+          в доменах IT, Finance, FMCG, Pharma —
+          за счёт управления внедрением, кастомизацией, интеграциями и сопровождением.
+        </li>
+
+        <li>
+          <strong>Вёл несколько проектов end-to-end</strong> —
+          обеспечил предсказуемую поставку результата на сложных интеграциях —
+          за счёт выстроенного delivery-процесса, работы со стейкхолдерами и проектного управления.
+        </li>
+
+        <li>
+          <strong>Работал с международными заказчиками на английском</strong> —
+          обеспечивал коммуникацию и управление ожиданиями —
+          за счёт фасилитации, согласования требований и документации.
+        </li>
+      </ul>
+    </div>
+  </details>
 
 </div>
 
