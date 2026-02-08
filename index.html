@@ -521,10 +521,45 @@
 
       .media-thumb img{ height: 200px; }
     }
+
+    /* Anchor navigation */
+    .anchor-nav{
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 14px;
+      padding: 8px 14px;
+      background: rgba(11,12,16,.55);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      z-index: 50;
+    }
+    .anchor-nav a{
+      font-size: 13px;
+      color: rgba(232,233,239,.75);
+      text-decoration: none;
+    }
+    .anchor-nav a:hover{ color: #fff; }
+
+    @media (max-width: 860px){
+      .anchor-nav{ display:none; }
+    }
+
   </style>
 </head>
 
 <body>
+
+<nav class="anchor-nav">
+  <a href="#top">Профиль</a>
+  <a href="#approach">Подход</a>
+  <a href="#hiring">Опыт</a>
+  <a href="#metrics">Результаты</a>
+</nav>
+
 <div class="container">
 
   <!-- HERO -->
@@ -534,8 +569,8 @@
 
       <h1>Коробский Александр</h1>
       <div class="subtitle">
-        Principal / Head-level Product Manager<br>
-        Клиентоцентричные платформы · Revenue & Retention · FinTech / BigTech
+        Product / Growth / CRM · 8+ лет · B2C / FinTech / High-load<br>
+        Principal / Head-level Product Manager
       </div>
 
       <p>
@@ -682,7 +717,7 @@
           <h3 style="margin-bottom:10px;">Фокус в решениях</h3>
           <p style="margin-top:0; font-size:16.5px; color:rgba(232,233,239,.84);">
             Я стремлюсь делать так, чтобы “рост” был не всплеском,
-            а следствием устойчивой архитектуры: данные → сегментация → сценарии → контроль качества → повторная ценность.
+            а следствием устойчивой архитектуры: <strong>данные</strong> → <strong>сегментация</strong> → <strong>сценарии</strong> → контроль качества → повторная ценность.
           </p>
           <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
             <span class="eyebrow" style="margin:0;"><span class="dot"></span> CRM as platform</span>
@@ -705,6 +740,19 @@
         Формат X—Y—Z: что сделал → измеримый результат → за счёт каких действий.
       </div>
     </div>
+
+
+    <div class="panel" style="margin-bottom:14px;">
+      <div class="panel-inner">
+        <h3 style="margin-bottom:8px;">Чем я полезен команде</h3>
+        <ul style="margin:0; padding-left:18px;">
+          <li>Снимаю разрыв между продуктом, маркетингом, продажами и разработкой</li>
+          <li>Перевожу бизнес-цели в измеримую продуктовую и CRM-архитектуру</li>
+          <li>Помогаю командам расти без потери управляемости и качества</li>
+        </ul>
+      </div>
+    </div>
+
 
     <div class="grid">
       <div class="col-12" style="display:grid; gap:12px;">
@@ -952,7 +1000,7 @@
   <div class="footer reveal">
     <p style="margin:0;">
       📍 Москва · 📧 <a href="mailto:k.a.e.5@yandex.ru">k.a.e.5@yandex.ru</a><br>
-      Интересны роли, где продукт — это архитектура роста и устойчивости.
+      Обычно отвечаю в течение 24 часов · Готов обсудить формат и задачи до оффера
     </p>
   </div>
 
