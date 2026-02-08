@@ -3,69 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="color-scheme" content="dark">
   <title>Коробский Александр — Product Leader</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-      background: #0b0c10;
-      color: #e8e9ef;
-      line-height: 1.65;
+    :root{
+      --bg:#0b0c10;
+      --panel:#151621;
+      --panel2:#121320;
+      --text:#e8e9ef;
+      --muted: rgba(232,233,239,.72);
+      --muted2: rgba(232,233,239,.58);
+      --line:#2b2c3a;
+      --link:#8ab4ff;
+      --shadow: 0 12px 34px rgba(0,0,0,.28);
+      --radius: 18px;
+      --radius2: 28px;
+      --max:1120px;
     }
 
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
     .container {
-      max-width: 1120px;
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 90px 24px;
+      padding: 84px 24px 90px;
     }
 
     h1, h2, h3 {
-      font-weight: 600;
-      line-height: 1.2;
+      font-weight: 650;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      margin: 0;
     }
 
-    h1 {
-      font-size: 52px;
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-size: 36px;
-      margin: 96px 0 28px;
-    }
-
-    h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
+    h1 { font-size: 52px; margin-bottom: 14px; }
+    h2 { font-size: 34px; margin: 0 0 22px; }
+    h3 { font-size: 20px; margin: 0 0 10px; }
 
     p {
-      max-width: 860px;
+      max-width: 900px;
       font-size: 18px;
-      opacity: 0.92;
+      color: rgba(232,233,239,.9);
+      margin: 14px 0 0;
     }
 
     .subtitle {
-      font-size: 21px;
-      opacity: 0.75;
-      margin-bottom: 32px;
+      font-size: 20px;
+      color: var(--muted);
+      margin: 0 0 18px;
     }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 7px 12px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
+      letter-spacing: .02em;
+      margin-bottom: 16px;
+    }
+    .dot{
+      width:6px;height:6px;border-radius:50%;
+      background: rgba(138,180,255,.85);
+      box-shadow: 0 0 0 6px rgba(138,180,255,.10);
+    }
+
+    /* Sections */
+    .section{
+      margin-top: 84px;
+      position: relative;
+    }
+    .section:first-of-type{ margin-top: 0; }
+    .section-header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    .section-note{
+      color: var(--muted2);
+      font-size: 14px;
+      max-width: 420px;
+      line-height: 1.45;
+      margin-top: 2px;
+    }
+
+    /* Layout helpers */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+    .col-4{ grid-column: span 4; }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+
+    @media (max-width: 980px){
+      .col-4,.col-6{ grid-column: span 12; }
+      .section-header{ flex-direction: column; align-items:flex-start; }
+    }
+
+    /* Panels */
+    .panel{
+      background: linear-gradient(180deg, rgba(21,22,33,.95), rgba(21,22,33,.72));
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .panel-inner{ padding: 26px; }
+    .panel-title{
+      display:flex; align-items:center; gap:10px;
+      margin-bottom: 10px;
+    }
+    .panel-icon{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(138,180,255,.10);
+      border: 1px solid rgba(138,180,255,.18);
+    }
+    .panel-icon svg{ width:18px; height:18px; opacity:.9; }
 
     /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 300px;
-      gap: 56px;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
       align-items: center;
+      padding: 32px;
+      border-radius: 26px;
+      background:
+        radial-gradient(1000px 420px at 20% 0%, rgba(138,180,255,.14), transparent 60%),
+        radial-gradient(880px 360px at 100% 30%, rgba(130,255,198,.08), transparent 58%),
+        linear-gradient(180deg, rgba(21,22,33,.92), rgba(16,17,25,.72));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
     }
 
+    .hero p{ margin-top: 12px; }
+    .hero-left{ min-width: 0; }
+
+    .cta-row{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.92);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      text-decoration:none;
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(255,255,255,.16);
+    }
+    .btn-primary{
+      background: rgba(138,180,255,.14);
+      border-color: rgba(138,180,255,.26);
+    }
+    .btn-primary:hover{
+      background: rgba(138,180,255,.18);
+      border-color: rgba(138,180,255,.34);
+    }
+    .btn svg{ width:16px;height:16px; opacity:.9; }
+
     .hero-photo {
-      width: 260px;
-      height: 260px;
-      border-radius: 28px;
+      width: 280px;
+      height: 280px;
+      border-radius: var(--radius2);
       background: linear-gradient(145deg, #1c1d2a, #0f1018);
       padding: 4px;
+      margin-left: auto;
     }
 
     .hero-photo-inner {
@@ -80,161 +222,305 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* Центрируем лицо и убираем «срез головы».
+         Если захочешь точнее — меняй второе значение (например 35%). */
+      object-position: 50% 28%;
+      transform: scale(1.02);
     }
 
     .hero-photo-caption {
-      margin-top: 12px;
-      font-size: 14px;
-      opacity: 0.6;
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(232,233,239,.58);
+      text-align: left;
     }
 
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-top: 44px;
+    /* Approach – 3 highlights with accent top border */
+    .approach-card{
+      position:relative;
+      overflow:hidden;
+    }
+    .approach-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: var(--radius);
+      border-top: 2px solid rgba(138,180,255,.55);
+      pointer-events:none;
+      opacity:.8;
     }
 
-    .card {
-      background: #151621;
-      border-radius: 18px;
-      padding: 30px;
+    /* How I Think – “statement + proof” blocks */
+    .think{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .think-item{
+      padding: 18px 22px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .think-item h3{ font-size: 18px; margin-bottom: 6px; }
+    .think-item p{ margin: 0; font-size: 17px; color: rgba(232,233,239,.85); }
+
+    /* Hiring accordion */
+    details.hiring{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(21,22,33,.95), rgba(21,22,33,.72));
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    /* METRICS */
-    .metric {
-      font-size: 38px;
-      font-weight: 600;
+    details.hiring summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 20px 22px;
+      user-select:none;
+      position: relative;
+      outline: none;
+    }
+    details.hiring summary::-webkit-details-marker{ display:none; }
+    details.hiring summary::after{
+      content:"▾";
+      position:absolute;
+      right: 18px;
+      top: 18px;
+      font-size: 18px;
+      opacity: .75;
+      transition: transform .18s ease, opacity .18s ease;
+    }
+    details.hiring[open] summary::after{
+      transform: rotate(180deg);
+      opacity: .95;
+    }
+    .hiring-topline{
+      display:flex; align-items:flex-start; justify-content:space-between; gap: 18px;
+    }
+    .hiring-company{
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .hiring-role{
+      margin-top: 4px;
+      color: rgba(232,233,239,.70);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .hiring-body{
+      padding: 0 22px 18px 22px;
+      color: rgba(232,233,239,.86);
+    }
+    .xyz{
+      margin: 10px 0 0;
+      padding-left: 18px;
+    }
+    .xyz li{
+      margin: 10px 0;
+      font-size: 16.5px;
+    }
+    .xyz strong{ color: #fff; }
+
+    /* Current experience – “pill” cards */
+    .pill{
+      padding: 18px 18px;
+      border-radius: 16px;
+      background:
+        radial-gradient(420px 220px at 20% 0%, rgba(138,180,255,.10), transparent 58%),
+        rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .pill h3{ font-size: 18px; }
+    .pill p{ margin: 8px 0 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
+
+    /* 6 months – steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step{
+      padding: 20px 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      position: relative;
+    }
+    .step-num{
+      width: 30px; height: 30px;
+      border-radius: 10px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(138,180,255,.12);
+      border: 1px solid rgba(138,180,255,.22);
+      color: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .step h3{ font-size: 18px; margin-bottom: 6px; }
+    .step p{ margin: 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
+
+    @media (max-width: 980px){
+      .steps{ grid-template-columns: 1fr; }
     }
 
-    .metric-label {
-      opacity: 0.7;
+    /* Strategic decisions – numbered blocks */
+    .numbered{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .numcard{
+      padding: 18px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .numline{
+      display:flex; gap:10px; align-items:center;
+      margin-bottom: 6px;
+    }
+    .badge{
+      width: 26px; height: 26px;
+      border-radius: 9px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(130,255,198,.10);
+      border: 1px solid rgba(130,255,198,.18);
+      font-weight: 800;
+      font-size: 12px;
+      color: rgba(255,255,255,.92);
+    }
+    .numcard h3{ font-size: 18px; margin: 0; }
+    .numcard p{ margin: 8px 0 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
+
+    @media (max-width: 980px){
+      .numbered{ grid-template-columns: 1fr; }
+    }
+
+    /* Metrics – stat tiles */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+    }
+    .stat{
+      padding: 18px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(420px 220px at 30% 0%, rgba(138,180,255,.10), transparent 58%),
+        rgba(255,255,255,.03);
+    }
+    .metric{
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .metric-label{
       margin-top: 6px;
+      font-size: 13px;
+      color: rgba(232,233,239,.70);
+      line-height: 1.35;
+    }
+    @media (max-width: 980px){
+      .stats{ grid-template-columns: repeat(2, 1fr); }
     }
 
+    /* Media – featured card */
+    .media-card{
+      padding: 0;
+      overflow:hidden;
+    }
+    .media-thumb{
+      position: relative;
+      display:block;
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+    }
+    .media-thumb img{
+      width:100%;
+      height: 240px;
+      object-fit: cover;
+      object-position: center;
+      display:block;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
+    }
+    .play{
+      position:absolute;
+      inset:auto 16px 16px 16px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.48);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.92);
+      font-weight: 700;
+      font-size: 13px;
+      backdrop-filter: blur(8px);
+    }
+    .play svg{ width:16px;height:16px; }
+
+    .media-body{ padding: 18px 18px 20px; }
+    .media-body h3{ margin:0 0 6px; }
+    .media-body p{ margin:0; font-size: 16.5px; color: rgba(232,233,239,.84); }
+
+    /* Footer */
     .footer {
-      margin-top: 140px;
-      padding-top: 44px;
-      border-top: 1px solid #2b2c3a;
-      opacity: 0.75;
+      margin-top: 110px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+      color: rgba(232,233,239,.72);
+      font-size: 15px;
     }
 
-    strong {
-      color: #ffffff;
+    /* Reveal animation */
+    .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+      will-change: opacity, transform;
     }
-
-    a {
-      color: #8ab4ff;
-      text-decoration: none;
+    .reveal.is-visible{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .reveal{ opacity:1; transform:none; transition:none; }
+      .btn{ transition:none; }
     }
 
     /* MOBILE */
     @media (max-width: 860px) {
-      .container {
-        padding: 64px 20px;
-      }
-
-      h1 {
-        font-size: 38px;
-      }
-
-      h2 {
-        font-size: 28px;
-        margin-top: 72px;
-      }
-
-      p {
-        font-size: 17px;
-      }
-
-      .subtitle {
-        font-size: 18px;
-      }
+      .container { padding: 58px 18px 72px; }
+      h1 { font-size: 38px; }
+      h2 { font-size: 28px; }
+      p { font-size: 17px; }
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 28px;
+        padding: 22px;
       }
+      .hero-photo { width: 220px; height: 220px; margin-left: 0; }
+      .hero-photo-caption { text-align: left; }
 
-      .hero-photo {
-        width: 200px;
-        height: 200px;
-      }
+      .cta-row{ margin-top: 18px; }
+      .btn{ width: 100%; justify-content:center; }
 
-      .metric {
-        font-size: 32px;
-      }
+      .media-thumb img{ height: 200px; }
     }
-
-    /* HIRING / COLLAPSIBLE CARDS */
-details.card {
-  padding: 0;            /* переопределяем, чтобы summary выглядел аккуратно */
-}
-
-details.card summary {
-  cursor: pointer;
-  list-style: none;
-  padding: 30px;
-  border-radius: 18px;
-  user-select: none;
-  position: relative;
-}
-
-details.card summary::-webkit-details-marker {
-  display: none;
-}
-
-details.card summary::after {
-  content: "▾";
-  position: absolute;
-  right: 22px;
-  top: 26px;
-  font-size: 18px;
-  opacity: 0.75;
-  transform: rotate(0deg);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-details.card[open] summary::after {
-  transform: rotate(180deg);
-  opacity: 0.95;
-}
-
-.hiring-meta {
-  opacity: 0.7;
-  margin-top: 6px;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.hiring-body {
-  padding: 0 30px 28px 30px;
-}
-
-.hiring-body ul {
-  padding-left: 22px;
-  margin: 14px 0 0 0;
-}
-
-.hiring-body li {
-  margin-bottom: 12px;
-  font-size: 17px;
-}
-
-/* MOBILE: чтобы summary не "ломался" */
-@media (max-width: 860px) {
-  details.card summary {
-    padding: 24px;
-  }
-  details.card summary::after {
-    right: 16px;
-    top: 22px;
-  }
-  .hiring-body {
-    padding: 0 24px 22px 24px;
-  }
-}
   </style>
 </head>
 
@@ -242,8 +528,10 @@ details.card[open] summary::after {
 <div class="container">
 
   <!-- HERO -->
-  <section class="hero">
-    <div>
+  <section class="hero reveal" id="top">
+    <div class="hero-left">
+      <div class="eyebrow"><span class="dot"></span> Product Architecture · Revenue Systems · CRM</div>
+
       <h1>Коробский Александр</h1>
       <div class="subtitle">
         Principal / Head-level Product Manager<br>
@@ -262,12 +550,35 @@ details.card[open] summary::after {
         адаптироваться к рынку и принимать стратегические решения
         на основе понимания клиента</strong>.
       </p>
+
+      <!-- CTA: Resume -->
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://hh.ru/resume/d515042dff09ed726b0039ed1f395563364b4a" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v10m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5 15v4h14v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Скачать резюме (hh.ru)
+        </a>
+
+        <a class="btn" href="mailto:k.a.e.5@yandex.ru">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Написать мне
+        </a>
+      </div>
     </div>
 
     <div>
-      <div class="hero-photo">
+      <div class="hero-photo" aria-label="Фото">
         <div class="hero-photo-inner">
-          <img src="https://sun9-81.vkuserphoto.ru/s/v1/ig2/JpR5fkvttHLF3PFtKzWNq3wEXwwOiVhsFFDjZIlXo-iaXTFziEBnGR0nd63u70pV2oB5FhuX50D0PnHgE4Rt2ZUM.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=853x0" alt="Коробский Александр">
+          <img
+            src="https://sun9-81.vkuserphoto.ru/s/v1/ig2/JpR5fkvttHLF3PFtKzWNq3wEXwwOiVhsFFDjZIlXo-iaXTFziEBnGR0nd63u70pV2oB5FhuX50D0PnHgE4Rt2ZUM.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=853x0"
+            alt="Коробский Александр"
+            loading="eager"
+          >
         </div>
       </div>
       <div class="hero-photo-caption">
@@ -277,270 +588,394 @@ details.card[open] summary::after {
   </section>
 
   <!-- APPROACH -->
-  <h2>Мой подход</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Клиент как центр системы</h3>
-      <p>Продукты проектируются вокруг поведения, потребностей и мотивации клиента, а не оргструктуры.</p>
+  <section class="section reveal" id="approach">
+    <div class="section-header">
+      <div>
+        <h2>Мой подход</h2>
+      </div>
+      <div class="section-note">
+        Не набор фичей, а система: клиент → данные → решения → стабильный рост.
+      </div>
     </div>
-    <div class="card">
-      <h3>Выручка как следствие системы</h3>
-      <p>Рост строится через retention, LTV и повторную ценность,
-        а не постоянное наращивание acquisition.</p>
+
+    <div class="grid">
+      <div class="panel approach-card col-4">
+        <div class="panel-inner">
+          <div class="panel-title">
+            <div class="panel-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-4.35 7-10a4 4 0 0 0-7-2 4 4 0 0 0-7 2c0 5.65 7 10 7 10Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Клиент как центр системы</h3>
+          </div>
+          <p>Продукты проектируются вокруг поведения, потребностей и мотивации клиента, а не оргструктуры.</p>
+        </div>
+      </div>
+
+      <div class="panel approach-card col-4">
+        <div class="panel-inner">
+          <div class="panel-title">
+            <div class="panel-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3v18M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Выручка как следствие системы</h3>
+          </div>
+          <p>Рост строится через retention, LTV и повторную ценность, а не постоянное наращивание acquisition.</p>
+        </div>
+      </div>
+
+      <div class="panel approach-card col-4">
+        <div class="panel-inner">
+          <div class="panel-title">
+            <div class="panel-icon">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 17l6-6 4 4 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 7V3h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>Адаптивность бизнеса</h3>
+          </div>
+          <p>Системы должны позволять менять стратегию без пересборки продукта — быстро и управляемо.</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Адаптивность бизнеса</h3>
-      <p>Системы должны позволять менять стратегию без пересборки продукта.</p>
-    </div>
-  </div>
+  </section>
 
   <!-- HOW I THINK -->
-  <h2>How I Think<br><span style="font-size:16px; opacity:.6">Как я принимаю продуктовые решения</span></h2>
-
-   <p>
-    Я мыслю продуктами как <strong>долгоживущими системами</strong>,
-    которые должны выдерживать рост, кризисы и регуляторные изменения
-    без деградации бизнес-результатов.
-  </p>
-  
-  <div class="grid">
-    <div class="card">
-      <h3>Система важнее метрик</h3>
-      <p>Если рост выручки ломает retention или доверие —
-        это отложенная проблема, а не успех.
-      </p>
+  <section class="section reveal" id="think">
+    <div class="section-header">
+      <div>
+        <h2>How I Think</h2>
+        <div class="section-note">Как я принимаю продуктовые решения</div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Retention как защита от турбулентности</h3>
-      <p>Lifecycle снижает зависимость от трафика и внешних факторов и делает бизнес устойчивым к рыночным изменениям.</p>
+
+    <p>
+      Я мыслю продуктами как <strong>долгоживущими системами</strong>,
+      которые должны выдерживать рост, кризисы и регуляторные изменения
+      без деградации бизнес-результатов.
+    </p>
+
+    <div class="grid" style="margin-top:18px;">
+      <div class="panel col-6">
+        <div class="panel-inner think">
+          <div class="think-item">
+            <h3>Система важнее метрик</h3>
+            <p>Если рост выручки ломает retention или доверие — это отложенная проблема, а не успех.</p>
+          </div>
+          <div class="think-item">
+            <h3>Retention как защита от турбулентности</h3>
+            <p>Lifecycle снижает зависимость от трафика и внешних факторов и делает бизнес устойчивым к рынку.</p>
+          </div>
+          <div class="think-item">
+            <h3>Customer Insight → решения</h3>
+            <p>Глубокое понимание клиента позволяет быстро принимать стратегические решения и опережать рынок.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel col-6">
+        <div class="panel-inner">
+          <h3 style="margin-bottom:10px;">Фокус в решениях</h3>
+          <p style="margin-top:0; font-size:16.5px; color:rgba(232,233,239,.84);">
+            Я стремлюсь делать так, чтобы “рост” был не всплеском,
+            а следствием устойчивой архитектуры: данные → сегментация → сценарии → контроль качества → повторная ценность.
+          </p>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <span class="eyebrow" style="margin:0;"><span class="dot"></span> CRM as platform</span>
+            <span class="eyebrow" style="margin:0;"><span class="dot"></span> Lifecycle / LTV</span>
+            <span class="eyebrow" style="margin:0;"><span class="dot"></span> Customer view</span>
+            <span class="eyebrow" style="margin:0;"><span class="dot"></span> Time-to-change</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Customer Insight → решения</h3>
-      <p>Глубокое понимание клиента позволяет быстро принимать
-        стратегические решения и опережать рынок.
-      </p>
+  </section>
+
+  <!-- HIRING -->
+  <section class="section reveal" id="hiring">
+    <div class="section-header">
+      <div>
+        <h2>Для найма</h2>
+      </div>
+      <div class="section-note">
+        Формат X—Y—Z: что сделал → измеримый результат → за счёт каких действий.
+      </div>
     </div>
-  </div>
 
-<!-- HIRING / ДЛЯ НАЙМА -->
-<h2>Для найма</h2>
+    <div class="grid">
+      <div class="col-12" style="display:grid; gap:12px;">
+        <!-- Banki.ru -->
+        <details class="hiring" open>
+          <summary>
+            <div class="hiring-topline">
+              <div>
+                <div class="hiring-company">Banki.ru</div>
+                <div class="hiring-role">Senior Product / Project Manager · Sep 2023 – Present</div>
+              </div>
+            </div>
+          </summary>
+          <div class="hiring-body">
+            <ul class="xyz">
+              <li>
+                <strong>Перевёл продуктовую логику от лидогенерации к retention-driven продажам</strong> —
+                <strong>retention вырос с 5% до 17%</strong> —
+                за счёт пересборки lifecycle-механик, сегментации и сценариев повторных продаж.
+              </li>
+              <li>
+                <strong>Довёл идентификацию продаж до 99% (sale → конкретный пользователь)</strong> —
+                появилась база для <strong>LTV / cohort / retention аналитики</strong> —
+                за счёт выстраивания единого customer view и связки CRM ↔ продукт ↔ продажи ↔ коммуникации.
+              </li>
+              <li>
+                <strong>Увеличил выручку в 2 раза и маржинальность в 1,5 раза</strong> —
+                через продуктовые и монетизационные улучшения —
+                за счёт управления воронками, персонализации и оптимизации customer engagement.
+              </li>
+              <li>
+                <strong>Увеличил диверсификацию продуктовой выручки</strong> —
+                снизил зависимость от единичных каналов привлечения —
+                за счёт развития портфеля сценариев и механик монетизации внутри lifecycle.
+              </li>
+              <li>
+                <strong>Запустил и развиваю международное внедрение CRM (4 рынка)</strong> —
+                <strong>Мексика, Армения, Казахстан, Филиппины</strong> —
+                за счёт курирования внедрения готового решения и адаптации процессов под локальную специфику
+                (отдельный проект, не “продолжение” самописной CRM).
+              </li>
+            </ul>
+          </div>
+        </details>
 
-<div class="grid">
+        <!-- Banki.ru BA -->
+        <details class="hiring">
+          <summary>
+            <div class="hiring-topline">
+              <div>
+                <div class="hiring-company">Banki.ru</div>
+                <div class="hiring-role">Senior Business Analyst · Jul 2022 – Aug 2023</div>
+              </div>
+            </div>
+          </summary>
+          <div class="hiring-body">
+            <ul class="xyz">
+              <li>
+                <strong>Спроектировал и запустил самописную CRM-платформу</strong> —
+                <strong>за ~13 месяцев (Jul 2022 – Aug 2023)</strong> довёл решение до уровня,
+                сравнимого по эффекту с enterprise CRM —
+                за счёт моделирования процессов (AS-IS/TO-BE), формализации требований,
+                BI-контуров и автоматизации customer journeys.
+              </li>
+              <li>
+                <strong>Систематизировал продуктовую аналитику и контуры продаж</strong> —
+                повысил управляемость решений и качество приоритизации —
+                за счёт сквозных отчётов, согласования сущностей данных и автоматизации ключевых воронок.
+              </li>
+            </ul>
+          </div>
+        </details>
 
-  <!-- Banki.ru — Senior Product / Project Manager -->
-  <details class="card">
-    <summary>
-      <strong>Banki.ru</strong>
-      <div class="hiring-meta">Senior Product / Project Manager · Sep 2023 – Present</div>
-    </summary>
-
-    <div class="hiring-body">
-      <ul>
-        <li>
-          <strong>Перевёл продуктовую логику от лидогенерации к retention-driven продажам</strong> —
-          <strong>retention вырос с 5% до 17%</strong> за период работы в роли —
-          за счёт пересборки lifecycle-механик, сегментации и сценариев повторных продаж.
-        </li>
-
-        <li>
-          <strong>Довёл идентификацию продаж до 99% (sale → конкретный пользователь)</strong> —
-          появилась надёжная база для <strong>LTV / cohort / retention аналитики</strong> —
-          за счёт выстраивания единого customer view и связки данных CRM ↔ продукт ↔ продажи ↔ коммуникации.
-        </li>
-
-        <li>
-          <strong>Увеличил выручку в 2 раза и маржинальность в 1,5 раза</strong> —
-          через продуктовые и монетизационные улучшения —
-          за счёт управления воронками, персонализации и оптимизации customer engagement.
-        </li>
-
-        <li>
-          <strong>Увеличил диверсификацию продуктовой выручки</strong> —
-          снизил зависимость от единичных каналов привлечения —
-          за счёт развития портфеля сценариев и механик монетизации внутри lifecycle.
-        </li>
-
-        <li>
-          <strong>Запустил и развиваю международное внедрение CRM (4 рынка)</strong> —
-          <strong>Мексика, Армения, Казахстан, Филиппины</strong> —
-          за счёт курирования внедрения готового решения и адаптации процессов под локальную специфику
-          (отдельный проект, не “продолжение” самописной CRM).
-        </li>
-      </ul>
+        <!-- GBC -->
+        <details class="hiring">
+          <summary>
+            <div class="hiring-topline">
+              <div>
+                <div class="hiring-company">GBC Team</div>
+                <div class="hiring-role">CRM Consultant / Project Manager · Mar 2020 – Jul 2022</div>
+              </div>
+            </div>
+          </summary>
+          <div class="hiring-body">
+            <ul class="xyz">
+              <li>
+                <strong>Реализовал 6–7 внедрений Salesforce CRM для enterprise-клиентов</strong> —
+                в доменах IT, Finance, FMCG, Pharma —
+                за счёт управления внедрением, кастомизацией, интеграциями и сопровождением.
+              </li>
+              <li>
+                <strong>Вёл несколько проектов end-to-end</strong> —
+                обеспечил предсказуемую поставку результата на сложных интеграциях —
+                за счёт выстроенного delivery-процесса, работы со стейкхолдерами и проектного управления.
+              </li>
+              <li>
+                <strong>Работал с международными заказчиками на английском</strong> —
+                обеспечивал коммуникацию и управление ожиданиями —
+                за счёт фасилитации, согласования требований и документации.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
     </div>
-  </details>
-
-  <!-- Banki.ru — Senior Business Analyst -->
-  <details class="card">
-    <summary>
-      <strong>Banki.ru</strong>
-      <div class="hiring-meta">Senior Business Analyst · Jul 2022 – Aug 2023</div>
-    </summary>
-
-    <div class="hiring-body">
-      <ul>
-        <li>
-          <strong>Спроектировал и запустил самописную CRM-платформу</strong> —
-          <strong>за ~13 месяцев (Jul 2022 – Aug 2023)</strong> довёл решение до уровня,
-          сравнимого по эффекту с enterprise CRM —
-          за счёт моделирования процессов (AS-IS/TO-BE), формализации требований,
-          BI-контуров и автоматизации customer journeys.
-        </li>
-
-        <li>
-          <strong>Систематизировал продуктовую аналитику и контуры продаж</strong> —
-          повысил управляемость решений и качество принятия приоритетов —
-          за счёт сквозных отчётов, согласования сущностей данных и автоматизации ключевых воронок.
-        </li>
-      </ul>
-    </div>
-  </details>
-
-  <!-- GBC Team — CRM Consultant / Project Manager -->
-  <details class="card">
-    <summary>
-      <strong>GBC Team</strong>
-      <div class="hiring-meta">CRM Consultant / Project Manager · Mar 2020 – Jul 2022</div>
-    </summary>
-
-    <div class="hiring-body">
-      <ul>
-        <li>
-          <strong>Реализовал 6–7 внедрений Salesforce CRM для enterprise-клиентов</strong> —
-          в доменах IT, Finance, FMCG, Pharma —
-          за счёт управления внедрением, кастомизацией, интеграциями и сопровождением.
-        </li>
-
-        <li>
-          <strong>Вёл несколько проектов end-to-end</strong> —
-          обеспечил предсказуемую поставку результата на сложных интеграциях —
-          за счёт выстроенного delivery-процесса, работы со стейкхолдерами и проектного управления.
-        </li>
-
-        <li>
-          <strong>Работал с международными заказчиками на английском</strong> —
-          обеспечивал коммуникацию и управление ожиданиями —
-          за счёт фасилитации, согласования требований и документации.
-        </li>
-      </ul>
-    </div>
-  </details>
-
-</div>
+  </section>
 
   <!-- CURRENT EXPERIENCE -->
-  <h2>Текущий опыт и зона ответственности</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>CRM и платформенные решения</h3>
-      <p>
-        Развитие CRM как платформы customer engagement:
-        данные, коммуникации, продажи, аналитика.
-      </p>
+  <section class="section reveal" id="current">
+    <div class="section-header">
+      <div>
+        <h2>Текущий опыт и зона ответственности</h2>
+      </div>
+      <div class="section-note">
+        Что я делаю “внутри системы” каждый день: платформа, revenue-логика, внедрения.
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Revenue & Retention</h3>
-      <p>
-        Переход от лидогенерации к управлению
-        жизненным циклом клиента и LTV.
-      </p>
-    </div>
+    <div class="grid">
+      <div class="pill col-4">
+        <h3>CRM и платформенные решения</h3>
+        <p>Развитие CRM как платформы customer engagement: данные, коммуникации, продажи, аналитика.</p>
+      </div>
 
-    <div class="card">
-      <h3>Международные рынки</h3>
-      <p>
-        Курирую внедрение и развитие отдельного готового CRM-решения
-        для международных рынков, адаптируя процессы под локальную специфику.
-      </p>
+      <div class="pill col-4">
+        <h3>Revenue & Retention</h3>
+        <p>Переход от лидогенерации к управлению жизненным циклом клиента и LTV.</p>
+      </div>
+
+      <div class="pill col-4">
+        <h3>Международные рынки</h3>
+        <p>Курирую внедрение и развитие отдельного готового CRM-решения для международных рынков, адаптируя процессы под локальную специфику.</p>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- FIRST 6 MONTHS -->
-  <h2>What I’m hired for in first 6 months<br><span style="font-size:16px; opacity:.6">Для чего меня нанимают в первые 6 месяцев</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Месяц 1–2 — Диагностика</h3>
-      <p>
-        Аудит продукта, CRM и бизнес-процессов:
-        продажи, клиентские сценарии, данные и контуры принятия решений.
-      </p>
+  <section class="section reveal" id="first6">
+    <div class="section-header">
+      <div>
+        <h2>What I’m hired for in first 6 months</h2>
+        <div class="section-note">Для чего меня нанимают в первые 6 месяцев</div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Месяц 3–4 — Стратегия</h3>
-      <p>
-        Формирование target-модели и приоритетов развития платформы.
-      </p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Месяц 1–2 — Диагностика</h3>
+        <p>Аудит продукта, CRM и бизнес-процессов: продажи, клиентские сценарии, данные и контуры принятия решений.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Месяц 3–4 — Стратегия</h3>
+        <p>Формирование target-модели и приоритетов развития платформы.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Месяц 5–6 — Первые сдвиги</h3>
+        <p>Запуск ключевых изменений и первые измеримые результаты.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>Месяц 5–6 — Первые сдвиги</h3>
-      <p>
-        Запуск ключевых изменений и первые измеримые результаты.
-      </p>
-    </div>
-  </div>
+  </section>
 
   <!-- STRATEGIC DECISIONS -->
-  <h2>Key Strategic Decisions<br><span style="font-size:16px; opacity:.6">Ключевые принятые решения</span></h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Lifecycle вместо лидов</h3>
-      <p>Перевёл бизнес-модель от доминирующего
-        фокуса на привлечение новых клиентов к управлению жизненным циклом уже имеющихся,
-        что обеспечило устойчивый рост и снижение зависимости от трафика.
-      </p>
+  <section class="section reveal" id="decisions">
+    <div class="section-header">
+      <div>
+        <h2>Key Strategic Decisions</h2>
+        <div class="section-note">Ключевые принятые решения</div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Единый customer view</h3>
-      <p>Выстроил многоуровневую идентификацию клиентов и связку продаж
-        основой продуктовой и CRM-стратегии,
-        превратив данные в инструмент принятия решений.
-      </p>
+
+    <div class="numbered">
+      <div class="numcard">
+        <div class="numline"><div class="badge">01</div><h3>Lifecycle вместо лидов</h3></div>
+        <p>Перевёл бизнес-модель от доминирующего фокуса на привлечение новых клиентов к управлению жизненным циклом уже имеющихся — это дало устойчивый рост и снизило зависимость от трафика.</p>
+      </div>
+      <div class="numcard">
+        <div class="numline"><div class="badge">02</div><h3>Единый customer view</h3></div>
+        <p>Выстроил многоуровневую идентификацию клиентов и связку продаж как основу продуктовой и CRM-стратегии — превратив данные в инструмент принятия решений.</p>
+      </div>
+      <div class="numcard">
+        <div class="numline"><div class="badge">03</div><h3>CRM как управляемый слой</h3></div>
+        <p>Не инструмент, а слой управления бизнес-взаимодействием: контроль качества, скорость изменений, связка каналов и продаж.</p>
+      </div>
     </div>
-    <div class="card">
-      <h3>CRM как управляемый слой</h3>
-      <p>Не инструмент, а слой управления бизнес-взаимодействием.
-      </p>
-    </div>
-  </div>
+  </section>
 
   <!-- METRICS -->
-  <h2>Измеримые результаты</h2>
-  <div class="grid">
-    <div class="card"><div class="metric">5% → 17%</div><div class="metric-label">Рост retention</div></div>
-    <div class="card"><div class="metric">95%+</div><div class="metric-label">Идентифицированные продажи</div></div>
-    <div class="card"><div class="metric">×2</div><div class="metric-label">Рост выручки</div></div>
-    <div class="card"><div class="metric">4</div><div class="metric-label">Международных внедрения</div></div>
-    <div class="card"><div class="metric">↓ Time-to-change</div><div class="metric-label">Скорость адаптации</div></div>
-    <div class="card"><div class="metric">∞</div><div class="metric-label">Масштабируемость</div></div>
-  </div>
-  
-<!-- MEDIA -->
-<h2>Медиа</h2>
+  <section class="section reveal" id="metrics">
+    <div class="section-header">
+      <div>
+        <h2>Измеримые результаты</h2>
+      </div>
+      <div class="section-note">
+        Цифры — как следствие системных изменений.
+      </div>
+    </div>
 
-<div class="grid">
-  <div class="card">
-    <a href="https://vkvideo.ru/video-119322127_456239018" target="_blank">
-      <img
-        src="preview.jpg"
-        alt="MailingDay 2024 — Разработка собственного технологического решения"
-        style="width:100%; border-radius:12px; margin-bottom:16px;"
-      >
-    </a>
+    <div class="stats">
+      <div class="stat"><div class="metric">5% → 17%</div><div class="metric-label">Рост retention</div></div>
+      <div class="stat"><div class="metric">95%+</div><div class="metric-label">Идентифицированные продажи</div></div>
+      <div class="stat"><div class="metric">×2</div><div class="metric-label">Рост выручки</div></div>
+      <div class="stat"><div class="metric">4</div><div class="metric-label">Международных внедрения</div></div>
+      <div class="stat"><div class="metric">↓ Time-to-change</div><div class="metric-label">Скорость адаптации</div></div>
+      <div class="stat"><div class="metric">∞</div><div class="metric-label">Масштабируемость</div></div>
+    </div>
+  </section>
 
-    <h3>MailingDay 2024</h3>
-    <p>
-      Разработка собственного технологического решения
-    </p>
-  </div>
-</div>
+  <!-- MEDIA -->
+  <section class="section reveal" id="media">
+    <div class="section-header">
+      <div>
+        <h2>Медиа</h2>
+      </div>
+      <div class="section-note">
+        Выступления и материалы, где видно подход и “как я думаю”.
+      </div>
+    </div>
 
-  <div class="footer">
-    <p>
+    <div class="grid">
+      <div class="panel media-card col-6">
+        <a class="media-thumb" href="https://vkvideo.ru/video-119322127_456239018" target="_blank" rel="noopener noreferrer">
+          <!-- Оставил твоё preview.jpg.
+               Если файла нет в репозитории — положи его рядом с index.html. -->
+          <img src="preview.jpg" alt="MailingDay 2024 — Разработка собственного технологического решения" loading="lazy">
+          <div class="play">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M9 7l10 5-10 5V7Z" fill="currentColor"/>
+              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Смотреть видео
+          </div>
+        </a>
+        <div class="media-body">
+          <h3>MailingDay 2024</h3>
+          <p>Разработка собственного технологического решения</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer reveal">
+    <p style="margin:0;">
       📍 Москва · 📧 <a href="mailto:k.a.e.5@yandex.ru">k.a.e.5@yandex.ru</a><br>
       Интересны роли, где продукт — это архитектура роста и устойчивости.
     </p>
   </div>
+
 </div>
+
+<script>
+  // Scroll reveal (без библиотек), уважает prefers-reduced-motion
+  (function () {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) return;
+
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -10% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 </body>
 </html>
