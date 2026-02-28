@@ -733,6 +733,86 @@
       .hero-right .contact-btn{ width: 220px; }
     }
 
+
+    .hero-right{
+        order: 1;
+      }
+      .hero-left{
+        order: 2;
+      }
+      .hero-left .cta-row{
+        margin-top: 20px;
+      }
+    }
+
+
+    /* Premium mobile spacing */
+    @media (max-width: 860px){
+      .hero{
+        padding: 22px;
+        gap: 18px;
+      }
+      .hero-right{
+        gap: 12px;
+      }
+      .hero-photo-caption{
+        margin-top: 8px;
+      }
+      .contact-btn{
+        margin-top: 2px;
+      }
+      .cta-row{
+        gap: 10px;
+      }
+      .cta-row .btn{
+        padding: 12px 14px;
+      }
+      .section{
+        margin-top: 72px;
+      }
+    }
+
+
+    /* HERO layout with separate CTA block */
+    .hero{
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      grid-template-areas:
+        "left right"
+        "cta  right";
+      gap: 32px 48px;
+      align-items: start;
+    }
+    .hero-left{ grid-area: left; }
+    .hero-right{ grid-area: right; }
+    .hero-cta{ grid-area: cta; }
+
+    .hero-cta .cta-row{ margin-top: 0; }
+
+    @media (max-width: 860px){
+      .hero{
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "left"
+          "right"
+          "cta";
+        gap: 18px;
+      }
+      /* Mobile: center avatar, caption and contact button */
+      .hero-right{
+        align-items: center;
+      }
+      .hero-right .hero-photo{ margin-left: 0; }
+      .hero-right .hero-photo-caption{
+        text-align: center;
+        width: 100%;
+      }
+      .hero-right .contact-btn{
+        width: min(320px, 100%);
+        justify-content: center;
+      }
+    }
+
 </style>
 </head>
 
@@ -780,6 +860,33 @@
       </p>
 
       <!-- CTA: Resume -->
+      <!-- NOTE: положите файл резюме рядом с index.html и назовите его resume.pdf (или поменяйте ссылку выше). -->
+
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-photo" aria-label="Фото">
+        <div class="hero-photo-inner">
+          <img
+            src="https://sun9-81.vkuserphoto.ru/s/v1/ig2/JpR5fkvttHLF3PFtKzWNq3wEXwwOiVhsFFDjZIlXo-iaXTFziEBnGR0nd63u70pV2oB5FhuX50D0PnHgE4Rt2ZUM.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=853x0"
+            alt="Коробский Александр"
+            loading="eager"
+          >
+        </div>
+      </div>
+      <div class="hero-photo-caption">
+        Product Leadership · CRM · Customer Engagement
+      </div>
+
+      <a class="btn btn-primary" href="#contacts">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 21l1.7-4.9A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Связаться со мной
+        </a>
+    </div>
+
+    <div class="hero-cta">
       <div class="cta-row">
         <a class="btn btn-primary" href="resume.pdf" download>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -831,16 +938,6 @@
           >
         </div>
       </div>
-      <div class="hero-photo-caption">
-        Product Leadership · CRM · Customer Engagement
-      </div>
-
-      <a class="btn btn-primary" href="#contacts">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 21l1.7-4.9A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-          Связаться со мной
-        </a>
     </div>
   </section>
 
