@@ -522,7 +522,7 @@
       .media-thumb img{ height: 200px; }
     }
 
-    /* Anchor navigation */
+    /* Anchor navigation (desktop + mobile) */
     .anchor-nav{
       position: fixed;
       top: 14px;
@@ -541,25 +541,113 @@
       font-size: 13px;
       color: rgba(232,233,239,.75);
       text-decoration: none;
+      white-space: nowrap;
     }
     .anchor-nav a:hover{ color: #fff; }
 
+    .anchor-nav-mobile{
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 14px;
+      display: none;
+      gap: 10px;
+      padding: 10px 12px;
+      background: rgba(11,12,16,.72);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      z-index: 60;
+      max-width: calc(100% - 24px);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .anchor-nav-mobile::-webkit-scrollbar{ display:none; }
+    .anchor-nav-mobile a{
+      font-size: 13px;
+      color: rgba(232,233,239,.78);
+      text-decoration:none;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.04);
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+    .anchor-nav-mobile a:hover{ color:#fff; border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.06); }
+
     @media (max-width: 860px){
       .anchor-nav{ display:none; }
+      .anchor-nav-mobile{ display:flex; }
+      .container{ padding-bottom: 120px; } /* чтобы нижняя навигация не перекрывала контент */
     }
 
-  </style>
+
+    /* Contacts */
+    .contacts-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .contact-card{
+      padding: 18px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        radial-gradient(420px 220px at 20% 0%, rgba(130,255,198,.08), transparent 60%),
+        rgba(255,255,255,.03);
+    }
+    .contact-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom: 8px;
+      font-weight: 750;
+      letter-spacing: -0.01em;
+    }
+    .contact-title svg{ width:18px; height:18px; opacity:.9; }
+    .contact-card a{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.92);
+      text-decoration:none;
+      font-weight: 650;
+      font-size: 14px;
+    }
+    .contact-card a:hover{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
+    .contact-hint{ color: rgba(232,233,239,.62); font-size: 13px; margin-top: 8px; line-height: 1.4; }
+
+    @media (max-width: 980px){
+      .contacts-grid{ grid-template-columns: 1fr; }
+    }
+
+</style>
 </head>
 
 <body>
 
-<nav class="anchor-nav">
+<nav class="anchor-nav" aria-label="Якорная навигация">
   <a href="#top">Профиль</a>
   <a href="#approach">Подход</a>
   <a href="#hiring">Опыт</a>
   <a href="#metrics">Результаты</a>
+  <a href="#contacts">Контакты</a>
 </nav>
 
+<nav class="anchor-nav-mobile" aria-label="Якорная навигация (мобильная)">
+  <a href="#top">Профиль</a>
+  <a href="#approach">Подход</a>
+  <a href="#hiring">Опыт</a>
+  <a href="#metrics">Результаты</a>
+  <a href="#contacts">Контакты</a>
+</nav>
 <div class="container">
 
   <!-- HERO -->
@@ -588,22 +676,49 @@
 
       <!-- CTA: Resume -->
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://hh.ru/resume/d515042dff09ed726b0039ed1f395563364b4a" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="resume.pdf" download>
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M12 3v10m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M5 15v4h14v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          Скачать резюме (hh.ru)
+          Скачать резюме (PDF)
         </a>
 
-        <a class="btn" href="mailto:k.a.e.5@yandex.ru">
+        <a class="btn" href="https://hh.ru/resume/d515042dff09ed726b0039ed1f395563364b4a" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
-            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 11h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          Написать мне
+          Резюме на hh.ru
+        </a>
+
+        <a class="btn" href="https://career.habr.com/alexraiskiy" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 7v10M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Habr Career
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/alexander-korobobskiy-240b881b4" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 9v11M7 6.5v.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11 20v-7a3 3 0 0 1 6 0v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M11 13v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          LinkedIn
+        </a>
+
+        <a class="btn" href="#contacts">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 21l1.7-4.9A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Связаться со мной
         </a>
       </div>
+      <!-- NOTE: положите файл резюме рядом с index.html и назовите его resume.pdf (или поменяйте ссылку выше). -->
+
     </div>
 
     <div>
@@ -996,13 +1111,46 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <div class="footer reveal">
-    <p style="margin:0;">
-      📍 Москва · 📧 <a href="mailto:k.a.e.5@yandex.ru">k.a.e.5@yandex.ru</a><br>
-      Обычно отвечаю в течение 24 часов · Готов обсудить формат и задачи до оффера
-    </p>
-  </div>
+  <!-- CONTACTS -->
+  <section class="section reveal" id="contacts">
+    <div class="section-header">
+      <div>
+        <h2>Мои контакты</h2>
+      </div>
+      <div class="section-note">
+        Быстрее всего отвечаю в Telegram или по почте. Обычно — в течение 24 часов.
+      </div>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="contact-card">
+        <div class="contact-title">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M22 3 11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M22 3 15 21l-4-7-7-4 18-7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Telegram
+        </div>
+        <!-- TODO: вставьте ссылку на Telegram вместо # (например https://t.me/username) -->
+        <a href="https://t.me/Alex_Raisky" target="_blank" rel="noopener noreferrer">
+          Открыть чат
+        </a>
+        <div class="contact-hint">Подходит для быстрых вопросов и первой связи.</div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-title">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+            <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Почта
+        </div>
+        <a href="mailto:k.a.e.5@ya.ru">k.a.e.5@ya.ru</a>
+        <div class="contact-hint">Можно сразу прислать описание роли или контекст задачи.</div>
+      </div>
+    </div>
+  </section>
 
 </div>
 
