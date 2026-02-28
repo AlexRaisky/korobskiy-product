@@ -93,21 +93,18 @@
     }
     .section:first-of-type{ margin-top: 0; }
     .section-header{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 18px;
+      display:block;
       margin-bottom: 18px;
     }
     .section-note{
       color: var(--muted2);
       font-size: 14px;
-      max-width: 420px;
+      max-width: 900px;
       line-height: 1.45;
-      margin-top: 2px;
+      margin-top: 8px;
     }
 
-    /* Layout helpers */
+/* Layout helpers */
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -124,10 +121,11 @@
 
     /* Panels */
     .panel{
-      background: linear-gradient(180deg, rgba(21,22,33,.95), rgba(21,22,33,.72));
-      border: 1px solid rgba(255,255,255,.07);
+      background: var(--surface-bg);
+      border: 1px solid var(--surface-border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .panel-inner{ padding: 26px; }
     .panel-title{
@@ -148,26 +146,29 @@
       display: grid;
       grid-template-columns: 1fr 320px;
       gap: 48px;
-      align-items: center;
+      align-items: start;
       padding: 32px;
       border-radius: 26px;
       background:
-        radial-gradient(1000px 420px at 20% 0%, rgba(138,180,255,.14), transparent 60%),
-        radial-gradient(880px 360px at 100% 30%, rgba(130,255,198,.08), transparent 58%),
-        linear-gradient(180deg, rgba(21,22,33,.92), rgba(16,17,25,.72));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
+        radial-gradient(1000px 420px at 20% 0%, rgba(130,255,198,.10), transparent 60%),
+        radial-gradient(880px 360px at 100% 30%, rgba(138,180,255,.10), transparent 58%),
+        rgba(255,255,255,.03);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
     .hero p{ margin-top: 12px; }
     .hero-left{ min-width: 0; }
 
     .cta-row{
-      display:flex;
-      align-items:center;
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       margin-top: 22px;
-      flex-wrap: wrap;
+    }
+    @media (max-width: 980px){
+      .cta-row{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     .btn{
@@ -259,8 +260,10 @@
     .think-item{
       padding: 18px 22px;
       border-radius: 16px;
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.07);
+      background: var(--surface-bg);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .think-item h3{ font-size: 18px; margin-bottom: 6px; }
     .think-item p{ margin: 0; font-size: 17px; color: rgba(232,233,239,.85); }
@@ -268,10 +271,11 @@
     /* Hiring accordion */
     details.hiring{
       border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(21,22,33,.95), rgba(21,22,33,.72));
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: var(--shadow);
+      background: var(--surface-bg);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
       overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
 
     details.hiring summary{
@@ -328,10 +332,10 @@
     .pill{
       padding: 18px 18px;
       border-radius: 16px;
-      background:
-        radial-gradient(420px 220px at 20% 0%, rgba(138,180,255,.10), transparent 58%),
-        rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.07);
+      background: var(--surface-bg);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .pill h3{ font-size: 18px; }
     .pill p{ margin: 8px 0 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
@@ -345,10 +349,11 @@
     .step{
       padding: 20px 20px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border: 1px solid var(--surface-border);
+      background: var(--surface-bg);
+      box-shadow: var(--surface-shadow);
       position: relative;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .step-num{
       width: 30px; height: 30px;
@@ -379,8 +384,10 @@
     .numcard{
       padding: 18px 18px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.03);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-bg);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .numline{
       display:flex; gap:10px; align-items:center;
@@ -412,10 +419,10 @@
     .stat{
       padding: 18px 16px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(420px 220px at 30% 0%, rgba(138,180,255,.10), transparent 58%),
-        rgba(255,255,255,.03);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-bg);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .metric{
       font-size: 30px;
@@ -516,8 +523,17 @@
       .hero-photo { width: 220px; height: 220px; margin-left: 0; }
       .hero-photo-caption { text-align: left; }
 
-      .cta-row{ margin-top: 18px; }
-      .btn{ width: 100%; justify-content:center; }
+      .cta-row{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+    @media (max-width: 980px){
+      .cta-row{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .btn{ width: 100%; justify-content:center; }
 
       .media-thumb img{ height: 200px; }
     }
@@ -593,10 +609,10 @@
     .contact-card{
       padding: 18px 18px;
       border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(420px 220px at 20% 0%, rgba(130,255,198,.08), transparent 60%),
-        rgba(255,255,255,.03);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-bg);
+      box-shadow: var(--surface-shadow);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
     .contact-title{
       display:flex;
@@ -626,6 +642,95 @@
 
     @media (max-width: 980px){
       .contacts-grid{ grid-template-columns: 1fr; }
+    }
+
+
+    /* Unified surface (match "Мои контакты") */
+    :root{
+      --surface-border: rgba(255,255,255,.08);
+      --surface-bg:
+        radial-gradient(420px 220px at 20% 0%, rgba(130,255,198,.08), transparent 60%),
+        rgba(255,255,255,.03);
+      --surface-shadow: var(--shadow);
+    }
+
+
+    /* Subtle lift on desktop hover */
+    @media (hover:hover) and (pointer:fine){
+      .panel:hover,
+      .pill:hover,
+      .step:hover,
+      .numcard:hover,
+      .stat:hover,
+      .think-item:hover,
+      details.hiring:hover,
+      .contact-card:hover,
+      .hero:hover{
+        transform: translateY(-4px);
+        border-color: rgba(255,255,255,.14);
+        box-shadow: 0 18px 44px rgba(0,0,0,.38);
+      }
+    }
+
+.cta-row .btn{ width:100%; justify-content:center; }
+.hero-right{
+      display:flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .hero-right .btn{ width: 280px; justify-content:center; }
+    @media (max-width: 860px){
+      .hero-right .btn{ width: 220px; }
+    }
+
+    /* Ensure button content fully centered */
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .btn svg{
+      flex: 0 0 auto;
+    }
+
+
+    
+
+
+    /* Improved optical centering */
+    .btn{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .btn span{
+      display:inline-block;
+    }
+    .btn svg{
+      transform: translateX(-1px); /* subtle balance */
+    }
+
+
+    /* Align avatar, caption and contact button inside HERO right column */
+    .hero-right{
+      align-items: center;
+    }
+    .hero-right .hero-photo{
+      margin-left: 0; /* override global margin-left:auto */
+    }
+    .hero-right .hero-photo-caption{
+      text-align: center;
+      width: 100%;
+    }
+    .hero-right .contact-btn{
+      width: 280px;
+      justify-content: center;
+    }
+    @media (max-width: 860px){
+      .hero-right .contact-btn{ width: 220px; }
     }
 
 </style>
@@ -681,47 +786,42 @@
             <path d="M12 3v10m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M5 15v4h14v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          Скачать резюме (PDF)
+          Скачать резюме
         </a>
 
-        <a class="btn" href="https://hh.ru/resume/d515042dff09ed726b0039ed1f395563364b4a" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="https://hh.ru/resume/d515042dff09ed726b0039ed1f395563364b4a" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7h16v10H4V7Z" stroke="currentColor" stroke-width="2"/>
-            <path d="M8 11h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <rect x="4.5" y="6.5" width="15" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M8 10v4M12 10v4M16 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          Резюме на hh.ru
+          HH.ru
         </a>
 
-        <a class="btn" href="https://career.habr.com/alexraiskiy" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="https://career.habr.com/alexraiskiy" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7 7v10M17 7v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M17 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <path d="M7 12h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           Habr Career
         </a>
 
-        <a class="btn" href="https://www.linkedin.com/in/alexander-korobobskiy-240b881b4" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/alexander-korobobskiy-240b881b4" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M7 9v11M7 6.5v.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M11 20v-7a3 3 0 0 1 6 0v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M11 13v7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6.5 9.5V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6.5 6.2v.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10.5 20v-6.6c0-2 1.2-3.4 3.2-3.4s3.3 1.4 3.3 3.4V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           LinkedIn
         </a>
 
-        <a class="btn" href="#contacts">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 21l1.7-4.9A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-          Связаться со мной
-        </a>
+        
       </div>
       <!-- NOTE: положите файл резюме рядом с index.html и назовите его resume.pdf (или поменяйте ссылку выше). -->
 
     </div>
 
-    <div>
+    <div class="hero-right">
       <div class="hero-photo" aria-label="Фото">
         <div class="hero-photo-inner">
           <img
@@ -734,6 +834,13 @@
       <div class="hero-photo-caption">
         Product Leadership · CRM · Customer Engagement
       </div>
+
+      <a class="btn btn-primary" href="#contacts">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 21l1.7-4.9A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Связаться со мной
+        </a>
     </div>
   </section>
 
