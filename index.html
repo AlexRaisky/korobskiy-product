@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="color-scheme" content="dark">
   <title>Коробский Александр — Product Leader</title>
-
   <style>
     :root{
       --bg:#0b0c10;
@@ -21,7 +20,6 @@
       --radius2: 28px;
       --max:1120px;
     }
-
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body {
@@ -33,40 +31,33 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
-
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-
     .container {
       max-width: var(--max);
       margin: 0 auto;
       padding: 84px 24px 90px;
     }
-
     h1, h2, h3 {
       font-weight: 650;
       line-height: 1.18;
       letter-spacing: -0.01em;
       margin: 0;
     }
-
     h1 { font-size: 52px; margin-bottom: 14px; }
     h2 { font-size: 34px; margin: 0 0 22px; }
     h3 { font-size: 20px; margin: 0 0 10px; }
-
     p {
       max-width: 900px;
       font-size: 18px;
       color: rgba(232,233,239,.9);
       margin: 14px 0 0;
     }
-
     .subtitle {
       font-size: 20px;
       color: var(--muted);
       margin: 0 0 18px;
     }
-
     .eyebrow{
       display:inline-flex;
       align-items:center;
@@ -85,7 +76,6 @@
       background: rgba(138,180,255,.85);
       box-shadow: 0 0 0 6px rgba(138,180,255,.10);
     }
-
     /* Sections */
     .section{
       margin-top: 84px;
@@ -103,7 +93,6 @@
       line-height: 1.45;
       margin-top: 8px;
     }
-
 /* Layout helpers */
     .grid {
       display: grid;
@@ -113,12 +102,10 @@
     .col-4{ grid-column: span 4; }
     .col-6{ grid-column: span 6; }
     .col-12{ grid-column: span 12; }
-
     @media (max-width: 980px){
       .col-4,.col-6{ grid-column: span 12; }
       .section-header{ flex-direction: column; align-items:flex-start; }
     }
-
     /* Panels */
     .panel{
       background: var(--surface-bg);
@@ -140,7 +127,6 @@
       border: 1px solid rgba(138,180,255,.18);
     }
     .panel-icon svg{ width:18px; height:18px; opacity:.9; }
-
     /* HERO */
     .hero {
       display: grid;
@@ -157,10 +143,8 @@
       box-shadow: var(--surface-shadow);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-
     .hero p{ margin-top: 12px; }
     .hero-left{ min-width: 0; }
-
     .cta-row{
       display:grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -170,7 +154,6 @@
     @media (max-width: 980px){
       .cta-row{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-
     .btn{
       display:inline-flex;
       align-items:center;
@@ -201,7 +184,6 @@
       border-color: rgba(138,180,255,.34);
     }
     .btn svg{ width:16px;height:16px; opacity:.9; }
-
     .hero-photo {
       width: 280px;
       height: 280px;
@@ -210,7 +192,6 @@
       padding: 4px;
       margin-left: auto;
     }
-
     .hero-photo-inner {
       width: 100%;
       height: 100%;
@@ -218,7 +199,6 @@
       overflow: hidden;
       background: #151621;
     }
-
     .hero-photo img {
       width: 100%;
       height: 100%;
@@ -228,14 +208,12 @@
       object-position: 50% 28%;
       transform: scale(1.02);
     }
-
     .hero-photo-caption {
       margin-top: 10px;
       font-size: 13px;
       color: rgba(232,233,239,.58);
       text-align: left;
     }
-
     /* Approach – 3 highlights with accent top border */
     .approach-card{
       position:relative;
@@ -250,7 +228,6 @@
       pointer-events:none;
       opacity:.8;
     }
-
     /* How I Think – “statement + proof” blocks */
     .think{
       display:grid;
@@ -267,7 +244,6 @@
     }
     .think-item h3{ font-size: 18px; margin-bottom: 6px; }
     .think-item p{ margin: 0; font-size: 17px; color: rgba(232,233,239,.85); }
-
     /* Hiring accordion */
     details.hiring{
       border-radius: var(--radius);
@@ -277,7 +253,6 @@
       overflow: hidden;
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
     }
-
     details.hiring summary{
       cursor:pointer;
       list-style:none;
@@ -327,7 +302,6 @@
       font-size: 16.5px;
     }
     .xyz strong{ color: #fff; }
-
     /* Current experience – “pill” cards */
     .pill{
       padding: 18px 18px;
@@ -339,7 +313,6 @@
     }
     .pill h3{ font-size: 18px; }
     .pill p{ margin: 8px 0 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
-
     /* 6 months – steps */
     .steps{
       display:grid;
@@ -370,11 +343,9 @@
     }
     .step h3{ font-size: 18px; margin-bottom: 6px; }
     .step p{ margin: 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
-
     @media (max-width: 980px){
       .steps{ grid-template-columns: 1fr; }
     }
-
     /* Strategic decisions – numbered blocks */
     .numbered{
       display:grid;
@@ -405,11 +376,9 @@
     }
     .numcard h3{ font-size: 18px; margin: 0; }
     .numcard p{ margin: 8px 0 0; font-size: 16.5px; color: rgba(232,233,239,.84); }
-
     @media (max-width: 980px){
       .numbered{ grid-template-columns: 1fr; }
     }
-
     /* Metrics – stat tiles */
     .stats{
       display:grid;
@@ -438,7 +407,6 @@
     @media (max-width: 980px){
       .stats{ grid-template-columns: repeat(2, 1fr); }
     }
-
     /* Media – featured card */
     .media-card{
       padding: 0;
@@ -477,11 +445,9 @@
       backdrop-filter: blur(8px);
     }
     .play svg{ width:16px;height:16px; }
-
     .media-body{ padding: 18px 18px 20px; }
     .media-body h3{ margin:0 0 6px; }
     .media-body p{ margin:0; font-size: 16.5px; color: rgba(232,233,239,.84); }
-
     /* Footer */
     .footer {
       margin-top: 110px;
@@ -490,7 +456,6 @@
       color: rgba(232,233,239,.72);
       font-size: 15px;
     }
-
     /* Reveal animation */
     .reveal{
       opacity: 0;
@@ -507,14 +472,12 @@
       .reveal{ opacity:1; transform:none; transition:none; }
       .btn{ transition:none; }
     }
-
     /* MOBILE */
     @media (max-width: 860px) {
       .container { padding: 58px 18px 72px; }
       h1 { font-size: 38px; }
       h2 { font-size: 28px; }
       p { font-size: 17px; }
-
       .hero {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -522,7 +485,6 @@
       }
       .hero-photo { width: 220px; height: 220px; margin-left: 0; }
       .hero-photo-caption { text-align: left; }
-
       .cta-row{
       display:grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -532,12 +494,9 @@
     @media (max-width: 980px){
       .cta-row{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-
     .btn{ width: 100%; justify-content:center; }
-
       .media-thumb img{ height: 200px; }
     }
-
     /* Anchor navigation (desktop + mobile) */
     .anchor-nav{
       position: fixed;
@@ -560,7 +519,6 @@
       white-space: nowrap;
     }
     .anchor-nav a:hover{ color: #fff; }
-
     .anchor-nav-mobile{
       position: fixed;
       left: 50%;
@@ -592,14 +550,11 @@
       flex: 0 0 auto;
     }
     .anchor-nav-mobile a:hover{ color:#fff; border-color: rgba(255,255,255,.16); background: rgba(255,255,255,.06); }
-
     @media (max-width: 860px){
       .anchor-nav{ display:none; }
       .anchor-nav-mobile{ display:flex; }
       .container{ padding-bottom: 120px; } /* чтобы нижняя навигация не перекрывала контент */
     }
-
-
     /* Contacts */
     .contacts-grid{
       display:grid;
@@ -639,12 +594,9 @@
     }
     .contact-card a:hover{ background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.16); }
     .contact-hint{ color: rgba(232,233,239,.62); font-size: 13px; margin-top: 8px; line-height: 1.4; }
-
     @media (max-width: 980px){
       .contacts-grid{ grid-template-columns: 1fr; }
     }
-
-
     /* Unified surface (match "Мои контакты") */
     :root{
       --surface-border: rgba(255,255,255,.08);
@@ -653,8 +605,6 @@
         rgba(255,255,255,.03);
       --surface-shadow: var(--shadow);
     }
-
-
     /* Subtle lift on desktop hover */
     @media (hover:hover) and (pointer:fine){
       .panel:hover,
@@ -671,7 +621,6 @@
         box-shadow: 0 18px 44px rgba(0,0,0,.38);
       }
     }
-
 .cta-row .btn{ width:100%; justify-content:center; }
 .hero-right{
       display:flex;
@@ -683,7 +632,6 @@
     @media (max-width: 860px){
       .hero-right .btn{ width: 220px; }
     }
-
     /* Ensure button content fully centered */
     .btn{
       display:flex;
@@ -694,11 +642,6 @@
     .btn svg{
       flex: 0 0 auto;
     }
-
-
-    
-
-
     /* Improved optical centering */
     .btn{
       display:flex;
@@ -712,8 +655,6 @@
     .btn svg{
       transform: translateX(-1px); /* subtle balance */
     }
-
-
     /* Align avatar, caption and contact button inside HERO right column */
     .hero-right{
       align-items: center;
@@ -732,8 +673,6 @@
     @media (max-width: 860px){
       .hero-right .contact-btn{ width: 220px; }
     }
-
-
     .hero-right{
         order: 1;
       }
@@ -744,8 +683,6 @@
         margin-top: 20px;
       }
     }
-
-
     /* Premium mobile spacing */
     @media (max-width: 860px){
       .hero{
@@ -771,8 +708,6 @@
         margin-top: 72px;
       }
     }
-
-
     /* HERO layout with separate CTA block */
     .hero{
       display: grid;
@@ -786,9 +721,7 @@
     .hero-left{ grid-area: left; }
     .hero-right{ grid-area: right; }
     .hero-cta{ grid-area: cta; }
-
     .hero-cta .cta-row{ margin-top: 0; }
-
     @media (max-width: 860px){
       .hero{
         grid-template-columns: 1fr;
@@ -812,12 +745,9 @@
         justify-content: center;
       }
     }
-
 </style>
 </head>
-
 <body>
-
 <nav class="anchor-nav" aria-label="Якорная навигация">
   <a href="#top">Профиль</a>
   <a href="#approach">Подход</a>
@@ -825,7 +755,6 @@
   <a href="#metrics">Результаты</a>
   <a href="#contacts">Контакты</a>
 </nav>
-
 <nav class="anchor-nav-mobile" aria-label="Якорная навигация (мобильная)">
   <a href="#top">Профиль</a>
   <a href="#approach">Подход</a>
@@ -834,41 +763,34 @@
   <a href="#contacts">Контакты</a>
 </nav>
 <div class="container">
-
   <!-- HERO -->
   <section class="hero reveal" id="top">
     <div class="hero-left">
-      <div class="eyebrow"><span class="dot"></span> Product Architecture · Revenue Systems · CRM</div>
-
+      <div class="eyebrow"><span class="dot"></span> CVM · Retention · Revenue Systems · CRM</div>
       <h1>Коробский Александр</h1>
       <div class="subtitle">
-        Product / Growth / CRM / CVM · 5+ лет · B2C / FinTech / High-load<br>
+        Product Leader · CVM / Retention / CRM · 5+ лет · B2C / FinTech / High-load<br>
         Principal / Head-level Product Manager
       </div>
-
       <p>
-        Я работаю на уровне <strong>архитектуры бизнеса</strong> —
-        там, где продукт, данные и клиентское взаимодействие
-        формируют долгосрочное конкурентное преимущество.
+        Я отвечаю за <strong>экономику жизненного цикла клиента</strong> —
+        превращаю уже привлечённых пользователей в устойчивую выручку
+        через retention, LTV и повторную ценность.
       </p>
-
       <p>
-        Моя зона ответственности — создание систем,
-        которые позволяют бизнесу <strong>масштабироваться,
-        адаптироваться к рынку и принимать стратегические решения
-        на основе понимания клиента</strong>.
+        Мой фокус — <strong>управляемый рост дохода на клиента</strong>:
+        сегментация, lifecycle-механики и честная атрибуция эффекта,
+        превращающие продукт и CRM в систему принятия решений.
       </p>
-
       <!-- CTA: Resume -->
       <!-- NOTE: положите файл резюме рядом с index.html и назовите его resume.pdf (или поменяйте ссылку выше). -->
-
     </div>
-
     <div class="hero-right">
       <div class="hero-photo" aria-label="Фото">
         <div class="hero-photo-inner">
+          <!-- Положи своё фото рядом с index.html как photo.jpg (портрет ~800x1000). -->
           <img
-            src="https://sun9-81.vkuserphoto.ru/s/v1/ig2/JpR5fkvttHLF3PFtKzWNq3wEXwwOiVhsFFDjZIlXo-iaXTFziEBnGR0nd63u70pV2oB5FhuX50D0PnHgE4Rt2ZUM.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=853x0"
+            src="photo.jpg"
             alt="Коробский Александр"
             loading="eager"
           >
@@ -877,7 +799,6 @@
       <div class="hero-photo-caption">
         Product Leadership · CRM · Customer Engagement
       </div>
-
       <a class="btn btn-primary" href="#contacts">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5c-1.6 0-3.1-.4-4.4-1.2L3 21l1.7-4.9A8.5 8.5 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
@@ -885,7 +806,6 @@
           Связаться со мной
         </a>
     </div>
-
     <div class="hero-cta">
       <div class="cta-row">
         <a class="btn btn-primary" href="resume.pdf" download>
@@ -895,15 +815,13 @@
           </svg>
           Скачать резюме
         </a>
-
-        <a class="btn btn-primary" href=https://hh.ru/resume/160d98ccff103dcdc20039ed1f6354366f7973" target="_blank" rel="noopener noreferrer">
+        <a class="btn btn-primary" href="https://hh.ru/resume/160d98ccff103dcdc20039ed1f6354366f7973" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <rect x="4.5" y="6.5" width="15" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
             <path d="M8 10v4M12 10v4M16 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
           HH.ru
         </a>
-
         <a class="btn btn-primary" href="https://career.habr.com/alexraiskiy" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M7 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -912,7 +830,6 @@
           </svg>
           Habr Career
         </a>
-
         <a class="btn btn-primary" href="https://www.linkedin.com/in/alex-raiskiy" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M6.5 9.5V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -921,26 +838,10 @@
           </svg>
           LinkedIn
         </a>
-
-        
       </div>
       <!-- NOTE: положите файл резюме рядом с index.html и назовите его resume.pdf (или поменяйте ссылку выше). -->
-
-    </div>
-
-    <div class="hero-right">
-      <div class="hero-photo" aria-label="Фото">
-        <div class="hero-photo-inner">
-          <img
-            src="https://sun9-81.vkuserphoto.ru/s/v1/ig2/JpR5fkvttHLF3PFtKzWNq3wEXwwOiVhsFFDjZIlXo-iaXTFziEBnGR0nd63u70pV2oB5FhuX50D0PnHgE4Rt2ZUM.jpg?quality=95&as=32x48,48x72,72x108,108x162,160x240,240x360,360x540,480x720,540x810,640x960,720x1080,853x1280&from=bu&cs=853x0"
-            alt="Коробский Александр"
-            loading="eager"
-          >
-        </div>
-      </div>
     </div>
   </section>
-
   <!-- APPROACH -->
   <section class="section reveal" id="approach">
     <div class="section-header">
@@ -951,7 +852,6 @@
         Не набор фичей, а система: клиент → данные → решения → стабильный рост.
       </div>
     </div>
-
     <div class="grid">
       <div class="panel approach-card col-4">
         <div class="panel-inner">
@@ -966,7 +866,6 @@
           <p>Продукты проектируются вокруг поведения, потребностей и мотивации клиента, а не оргструктуры.</p>
         </div>
       </div>
-
       <div class="panel approach-card col-4">
         <div class="panel-inner">
           <div class="panel-title">
@@ -977,10 +876,9 @@
             </div>
             <h3>Выручка как следствие системы</h3>
           </div>
-          <p>Рост строится через retention, LTV и повторную ценность, а не постоянное наращивание acquisition.</p>
+          <p>Рост строится через retention, LTV и повторную ценность — с честной атрибуцией эффекта, а не приписанными конверсиями.</p>
         </div>
       </div>
-
       <div class="panel approach-card col-4">
         <div class="panel-inner">
           <div class="panel-title">
@@ -997,7 +895,6 @@
       </div>
     </div>
   </section>
-
   <!-- HIRING -->
   <section class="section reveal" id="hiring">
     <div class="section-header">
@@ -1008,8 +905,6 @@
         Что сделал, к чему привело, за счёт каких решений
       </div>
     </div>
-
-
     <div class="panel" style="margin-bottom:14px;">
       <div class="panel-inner">
         <h3 style="margin-bottom:8px;">Чем я полезен команде</h3>
@@ -1020,8 +915,6 @@
         </ul>
       </div>
     </div>
-
-
     <div class="grid">
       <div class="col-12" style="display:grid; gap:12px;">
         <!-- Banki.ru -->
@@ -1038,13 +931,19 @@
             <ul class="xyz">
               <li>
                 <strong>Перевёл продуктовую логику от лидогенерации к retention-driven продажам</strong> —
-                <strong>retention вырос с 5% до 17%</strong> —
+                <strong>retention вырос с 5% до 17%</strong>, что кратно увеличило срок жизни клиента и LTV —
                 за счёт пересборки lifecycle-механик, сегментации и сценариев повторных продаж.
               </li>
               <li>
                 <strong>Довёл идентификацию продаж до 99% (sale → конкретный пользователь)</strong> —
                 появилась база для <strong>LTV / cohort / retention аналитики</strong> —
                 за счёт выстраивания единого customer view и связки CRM ↔ продукт ↔ продажи ↔ коммуникации.
+              </li>
+              <li>
+                <strong>Очистил модель атрибуции retention-каналов</strong> —
+                разделил коммуникации на сервисные, информационные и рекламные и убрал сервисную выручку из атрибуции retention (честнее для экономики компании);
+                <strong>несмотря на урезание базы, retention-каналы сохранили рост выручки и доли</strong> —
+                что подтвердило реальность эффекта, а не учётный артефакт.
               </li>
               <li>
                 <strong>Увеличил выручку в 2 раза и маржинальность в 1,5 раза</strong> —
@@ -1065,7 +964,6 @@
             </ul>
           </div>
         </details>
-
         <!-- Banki.ru BA -->
         <details class="hiring">
           <summary>
@@ -1093,7 +991,6 @@
             </ul>
           </div>
         </details>
-
         <!-- GBC -->
         <details class="hiring">
           <summary>
@@ -1127,7 +1024,6 @@
       </div>
     </div>
   </section>
-
   <!-- CURRENT EXPERIENCE -->
   <section class="section reveal" id="current">
     <div class="section-header">
@@ -1138,25 +1034,21 @@
         Что я делаю “внутри системы” каждый день: платформа, revenue-логика, внедрения.
       </div>
     </div>
-
     <div class="grid">
       <div class="pill col-4">
         <h3>CRM и платформенные решения</h3>
         <p>Развитие CRM как платформы customer engagement: данные, коммуникации, продажи, аналитика.</p>
       </div>
-
       <div class="pill col-4">
-        <h3>Revenue & Retention</h3>
-        <p>Переход от лидогенерации к управлению жизненным циклом клиента и LTV.</p>
+        <h3>CVM · Revenue &amp; Retention</h3>
+        <p>Управление экономикой жизненного цикла клиента: retention, LTV, ARPU и стоимость удержания (CRC) как единая система.</p>
       </div>
-
       <div class="pill col-4">
         <h3>Международные рынки</h3>
         <p>Курирую внедрение и развитие отдельного готового CRM-решения для международных рынков, адаптируя процессы под локальную специфику.</p>
       </div>
     </div>
   </section>
-
   <!-- FIRST 6 MONTHS -->
   <section class="section reveal" id="first6">
     <div class="section-header">
@@ -1165,7 +1057,6 @@
         <div class="section-note">Не просто погружение в задачи. Выработка стратегии, приоритетов с максимальным результатом для компании.</div>
       </div>
     </div>
-
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
@@ -1184,7 +1075,6 @@
       </div>
     </div>
   </section>
-
   <!-- STRATEGIC DECISIONS -->
   <section class="section reveal" id="decisions">
     <div class="section-header">
@@ -1193,7 +1083,6 @@
         <div class="section-note">Ключевые принятые решения</div>
       </div>
     </div>
-
     <div class="numbered">
       <div class="numcard">
         <div class="numline"><div class="badge">01</div><h3>Lifecycle вместо лидов</h3></div>
@@ -1209,7 +1098,6 @@
       </div>
     </div>
   </section>
-
   <!-- METRICS -->
   <section class="section reveal" id="metrics">
     <div class="section-header">
@@ -1220,17 +1108,15 @@
         Цифры — как следствие системных изменений.
       </div>
     </div>
-
     <div class="stats">
       <div class="stat"><div class="metric">5% → 17%</div><div class="metric-label">Рост retention</div></div>
-      <div class="stat"><div class="metric">95%+</div><div class="metric-label">Идентифицированные продажи</div></div>
+      <div class="stat"><div class="metric">99%</div><div class="metric-label">Идентифицированные продажи</div></div>
       <div class="stat"><div class="metric">×2</div><div class="metric-label">Рост выручки</div></div>
+      <div class="stat"><div class="metric">×1,5</div><div class="metric-label">Рост маржинальности</div></div>
       <div class="stat"><div class="metric">4</div><div class="metric-label">Международных внедрения</div></div>
       <div class="stat"><div class="metric">↓ Time-to-change</div><div class="metric-label">Скорость адаптации</div></div>
-      <div class="stat"><div class="metric">∞</div><div class="metric-label">Масштабируемость</div></div>
     </div>
   </section>
-
   <!-- MEDIA -->
   <section class="section reveal" id="media">
     <div class="section-header">
@@ -1241,7 +1127,6 @@
         Выступления и материалы, где видно подход и “как я думаю”.
       </div>
     </div>
-
     <div class="grid">
       <div class="panel media-card col-6">
         <a class="media-thumb" href="https://vkvideo.ru/video-119322127_456239018" target="_blank" rel="noopener noreferrer">
@@ -1258,12 +1143,11 @@
         </a>
         <div class="media-body">
           <h3>MailingDay 2024</h3>
-          <p>Разработка собственного технологического решения</p>
+          <p>Разработка собственного технологического решения: retention-архитектура и честная атрибуция эффекта.</p>
         </div>
       </div>
     </div>
   </section>
-
   <!-- CONTACTS -->
   <section class="section reveal" id="contacts">
     <div class="section-header">
@@ -1274,7 +1158,6 @@
         Быстрее всего отвечаю в Telegram или по почте. Обычно — в течение 24 часов.
       </div>
     </div>
-
     <div class="contacts-grid">
       <div class="contact-card">
         <div class="contact-title">
@@ -1290,7 +1173,6 @@
         </a>
         <div class="contact-hint">Подходит для быстрых вопросов и первой связи.</div>
       </div>
-
       <div class="contact-card">
         <div class="contact-title">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1304,15 +1186,12 @@
       </div>
     </div>
   </section>
-
 </div>
-
 <script>
   // Scroll reveal (без библиотек), уважает prefers-reduced-motion
   (function () {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) return;
-
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
@@ -1322,7 +1201,6 @@
         }
       });
     }, { threshold: 0.14, rootMargin: '0px 0px -10% 0px' });
-
     els.forEach(el => io.observe(el));
   })();
 </script>
