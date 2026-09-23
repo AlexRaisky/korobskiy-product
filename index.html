@@ -15,6 +15,9 @@
       --muted2: rgba(232,233,239,.58);
       --line:#2b2c3a;
       --link:#8ab4ff;
+      --acc:#22d3ee;
+      --acc-soft: rgba(34,211,238,.14);
+      --acc-line: rgba(34,211,238,.30);
       --shadow: 0 12px 34px rgba(0,0,0,.28);
       --radius: 18px;
       --radius2: 28px;
@@ -123,8 +126,9 @@
       width: 34px; height: 34px;
       border-radius: 12px;
       display:flex; align-items:center; justify-content:center;
-      background: rgba(138,180,255,.10);
-      border: 1px solid rgba(138,180,255,.18);
+      background: var(--acc-soft);
+      border: 1px solid var(--acc-line);
+      color: var(--acc);
     }
     .panel-icon svg{ width:18px; height:18px; opacity:.9; }
     /* HERO */
@@ -397,6 +401,7 @@
       font-size: 30px;
       font-weight: 800;
       letter-spacing: -0.02em;
+      color: var(--acc);
     }
     .metric-label{
       margin-top: 6px;
@@ -408,6 +413,82 @@
       .stats{ grid-template-columns: repeat(2, 1fr); }
     }
     /* Media – featured card */
+    /* METRICS DIGEST */
+    .digest{ max-width: var(--max); margin: 0 auto; }
+    .digest-row{
+      display:grid; grid-template-columns: repeat(6, 1fr); gap: 12px;
+      padding: 22px 24px;
+      border:1px solid var(--acc-line);
+      border-radius: var(--radius);
+      background: radial-gradient(600px 200px at 15% 0%, rgba(34,211,238,.07), transparent 60%), rgba(255,255,255,.03);
+    }
+    .digest-num{ font-size: 26px; font-weight: 800; letter-spacing:-.02em; color: var(--acc); line-height:1.1; }
+    .digest-lbl{ margin-top: 5px; font-size: 12px; color: rgba(232,233,239,.65); }
+    @media (max-width: 860px){
+      .digest-row{ grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+
+    /* RETENTION DIAGRAM */
+    .retchart{
+      display:flex; align-items:flex-end; gap: 48px; height: 190px; padding: 0 10px 26px;
+      max-width: 460px;
+    }
+    .retbar{ width: 88px; border-radius: 10px 10px 0 0; position:relative; display:flex; justify-content:center; }
+    .retbar .rv{ position:absolute; top:-28px; font-weight:800; font-size:22px; }
+    .retbar .rl{ position:absolute; bottom:-24px; color:var(--muted2); font-size:12px; }
+    .retbar.was{ background: rgba(255,255,255,.14); }
+    .retbar.now{ background: linear-gradient(180deg, var(--acc), rgba(34,211,238,.55)); }
+    .retbar.now .rv{ color: var(--acc); }
+
+    /* TIMELINE 6 months */
+    .timeline{ display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; position:relative; margin-top: 6px; }
+    @media(max-width:860px){ .timeline{ grid-template-columns:1fr; gap:14px; } }
+    .tl-step{
+      position:relative;
+      padding: 22px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--surface-border);
+      background: var(--surface-bg);
+      box-shadow: var(--surface-shadow);
+    }
+    .tl-step:not(:last-child)::after{
+      content:""; position:absolute; top: 40px; right: -16px; width: 16px; height: 2px;
+      background: var(--acc); opacity:.5; z-index:2;
+    }
+    @media(max-width:860px){
+      .tl-step:not(:last-child)::after{ top:auto; right:auto; left:38px; bottom:-14px; width:2px; height:14px; }
+    }
+    .tl-dot{
+      width: 38px; height: 38px; border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: var(--acc-soft); border: 1px solid var(--acc-line);
+      color: var(--acc); font-weight: 800; font-size: 16px;
+      position:relative; z-index:1; margin-bottom: 16px;
+    }
+    .tl-phase{ font-size: 12px; color: var(--acc); font-weight: 650; letter-spacing:.02em; margin-bottom:4px; text-transform:uppercase; }
+    .tl-step h3{ font-size: 17px; margin: 0 0 6px; }
+    .tl-step p{ margin: 0; font-size: 15.5px; color: rgba(232,233,239,.82); }
+
+    .pullquote{
+      margin: 0 0 22px;
+      padding: 22px 26px;
+      border-left: 3px solid rgba(138,180,255,.55);
+      border-radius: 0 14px 14px 0;
+      background: rgba(255,255,255,.03);
+      font-size: 21px;
+      line-height: 1.45;
+      font-weight: 550;
+      letter-spacing: -0.01em;
+      color: rgba(232,233,239,.95);
+    }
+    .pullquote cite{
+      display:block;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 400;
+      font-style: normal;
+      color: var(--muted2);
+    }
     .media-card{
       padding: 0;
       overflow:hidden;
@@ -858,7 +939,9 @@
           <div class="panel-title">
             <div class="panel-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 21s7-4.35 7-10a4 4 0 0 0-7-2 4 4 0 0 0-7 2c0 5.65 7 10 7 10Z" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
               </svg>
             </div>
             <h3>Клиент как центр системы</h3>
@@ -871,7 +954,10 @@
           <div class="panel-title">
             <div class="panel-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 3v18M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 20h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <rect x="5" y="12" width="3.5" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="10.5" y="8" width="3.5" height="10" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="16" y="4" width="3.5" height="14" rx="1" stroke="currentColor" stroke-width="2"/>
               </svg>
             </div>
             <h3>Выручка как следствие системы</h3>
@@ -884,13 +970,27 @@
           <div class="panel-title">
             <div class="panel-icon">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 17l6-6 4 4 6-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M20 7V3h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M4 12a8 8 0 0 1 13.7-5.6L20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 4v4h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 12a8 8 0 0 1-13.7 5.6L4 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 20v-4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <h3>Адаптивность бизнеса</h3>
           </div>
           <p>Системы должны позволять менять стратегию без пересборки продукта — быстро и управляемо.</p>
+        </div>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:14px;">
+      <div class="panel-inner" style="display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1 1 220px;min-width:0;">
+          <h3 style="margin:0 0 8px;">Retention как двигатель роста</h3>
+          <p style="margin:0;font-size:16.5px;color:rgba(232,233,239,.84);">Переход от лидогенерации к lifecycle-модели поднял удержание с 5% до 17% — а это кратный рост срока жизни клиента и LTV, без роста затрат на привлечение.</p>
+        </div>
+        <div class="retchart" aria-label="Рост retention с 5% до 17%">
+          <div class="retbar was" style="height:15%;"><span class="rv" style="color:rgba(255,255,255,.6)">5%</span><span class="rl">было</span></div>
+          <div class="retbar now" style="height:100%;"><span class="rv">17%</span><span class="rl">стало</span></div>
         </div>
       </div>
     </div>
@@ -939,48 +1039,14 @@
           </summary>
           <div class="hiring-body">
             <ul class="xyz">
-              <li>
-                <strong>Перевёл продуктовую логику от лидогенерации к retention-driven продажам</strong> —
-                <strong>retention вырос с 5% до 17%</strong>, что кратно увеличило срок жизни клиента и LTV —
-                за счёт пересборки lifecycle-механик, сегментации и сценариев повторных продаж.
-              </li>
-              <li>
-                <strong>Довёл идентификацию продаж до 99% (sale → конкретный пользователь)</strong> —
-                появилась база для <strong>LTV / cohort / retention аналитики</strong> —
-                за счёт выстраивания единого customer view и связки CRM ↔ продукт ↔ продажи ↔ коммуникации.
-              </li>
-              <li>
-                <strong>Очистил модель атрибуции retention-каналов</strong> —
-                разделил коммуникации на сервисные, информационные и рекламные и убрал сервисную выручку из атрибуции retention (честнее для экономики компании);
-                <strong>несмотря на урезание базы, retention-каналы сохранили рост выручки и доли</strong> —
-                что подтвердило реальность эффекта, а не учётный артефакт.
-              </li>
-              <li>
-                <strong>Вернул выручку реальному каналу привлечения в одной из вертикалей</strong> —
-                через анализ CJM выявил, что обязательный сервисный шаг ошибочно собирал на себя основную выручку направления; переклассифицировал такие касания и пересобрал атрибуцию с маркетингом, финансами и вертикалью —
-                <strong>+50 млн ₽/год маркетинговой маржинальности</strong> и корректная картина эффективности каналов.
-              </li>
-              <li>
-                <strong>Увеличил выручку в 2 раза и маржинальность в 1,5 раза</strong> —
-                через продуктовые и монетизационные улучшения —
-                за счёт управления воронками, персонализации и оптимизации customer engagement.
-              </li>
-              <li>
-                <strong>Увеличил диверсификацию продуктовой выручки</strong> —
-                снизил зависимость от единичных каналов привлечения —
-                за счёт развития портфеля сценариев и механик монетизации внутри lifecycle.
-              </li>
-              <li>
-                <strong>Как product lead спроектировал и довёл до работающего решения внутренний CRM-инструмент</strong> —
-                архитектура, логика, бэклог, приоритизация; реализация с AI и разработчиком на сложных модулях —
-                <strong>решение оценено разработкой как сильное, срок ~3 месяца против ~1,5 лет по сопоставимой задаче штатными силами.</strong>
-              </li>
-              <li>
-                <strong>Запустил и адаптировал процессы CRM под международное направление (4 рынка)</strong> —
-                <strong>Мексика, Армения, Казахстан, Филиппины</strong> —
-                за счёт курирования внедрения готового решения и адаптации процессов под локальную специфику
-                (отдельный проект, не “продолжение” самописной CRM).
-              </li>
+              <li>Увеличил выручку в 2 раза и маржинальность в 1,5 раза — через продуктовые и монетизационные улучшения, управление воронками, персонализацию и оптимизацию customer engagement.</li>
+              <li>Перевёл продуктовую логику от лидогенерации к retention-driven продажам: retention вырос с 5% до 17%, что кратно увеличило срок жизни клиента и LTV — за счёт пересборки lifecycle-механик, сегментации и сценариев повторных продаж.</li>
+              <li>Вернул выручку реальному каналу привлечения в одной из вертикалей: через анализ CJM выявил, что обязательный сервисный шаг ошибочно собирал на себя основную выручку направления; переклассифицировал такие касания и пересобрал атрибуцию с маркетингом, финансами и вертикалью — +50 млн ₽/год маркетинговой маржинальности и корректная картина эффективности каналов.</li>
+              <li>Очистил модель атрибуции retention-каналов: разделил коммуникации на сервисные, информационные и рекламные и убрал сервисную выручку из атрибуции retention (честнее для экономики компании); несмотря на урезание базы, retention-каналы сохранили рост выручки и доли — что подтвердило реальность эффекта, а не учётный артефакт.</li>
+              <li>Довёл идентификацию продаж до 99% (sale → конкретный пользователь) — появилась база для LTV / cohort / retention аналитики — за счёт выстраивания единого customer view и связки CRM ↔ продукт ↔ продажи ↔ коммуникации.</li>
+              <li>Увеличил диверсификацию продуктовой выручки — снизил зависимость от единичных каналов привлечения — за счёт развития портфеля сценариев и механик монетизации внутри lifecycle.</li>
+              <li>Как product lead спроектировал и довёл до работающего решения внутренний CRM-инструмент: архитектура, логика, бэклог, приоритизация; реализация с AI и разработчиком на сложных модулях — решение оценено разработкой как сильное, срок ~3 месяца против ~1,5 лет по сопоставимой задаче штатными силами.</li>
+              <li>Запустил и адаптировал процессы CRM под международное направление (4 рынка) — Мексика, Армения, Казахстан, Филиппины — за счёт курирования внедрения готового решения и адаптации процессов под локальную специфику (отдельный проект, не “продолжение” самописной CRM).</li>
             </ul>
           </div>
         </details>
@@ -1077,20 +1143,23 @@
         <div class="section-note">Не просто погружение в задачи. Выработка стратегии, приоритетов с максимальным результатом для компании.</div>
       </div>
     </div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <h3>Месяц 1–2 — Диагностика</h3>
+    <div class="timeline">
+      <div class="tl-step">
+        <div class="tl-dot">1</div>
+        <div class="tl-phase">Месяц 1–2</div>
+        <h3>Диагностика</h3>
         <p>Аудит продукта, CRM и бизнес-процессов: продажи, клиентские сценарии, данные и контуры принятия решений.</p>
       </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <h3>Месяц 3–4 — Стратегия</h3>
+      <div class="tl-step">
+        <div class="tl-dot">2</div>
+        <div class="tl-phase">Месяц 3–4</div>
+        <h3>Стратегия</h3>
         <p>Формирование target-модели и приоритетов развития систем и направлений.</p>
       </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <h3>Месяц 5–6 — Первые сдвиги</h3>
+      <div class="tl-step">
+        <div class="tl-dot">3</div>
+        <div class="tl-phase">Месяц 5–6</div>
+        <h3>Первые сдвиги</h3>
         <p>Запуск ключевых изменений и первые измеримые результаты.</p>
       </div>
     </div>
@@ -1132,13 +1201,15 @@
         Цифры — как следствие системных изменений.
       </div>
     </div>
-    <div class="stats">
-      <div class="stat"><div class="metric">5% → 17%</div><div class="metric-label">Рост retention</div></div>
-      <div class="stat"><div class="metric">99%</div><div class="metric-label">Идентифицированные продажи</div></div>
-      <div class="stat"><div class="metric">×2</div><div class="metric-label">Рост выручки</div></div>
-      <div class="stat"><div class="metric">×1,5</div><div class="metric-label">Рост маржинальности</div></div>
-      <div class="stat"><div class="metric">4</div><div class="metric-label">Международных внедрения</div></div>
-      <div class="stat"><div class="metric">+50 млн ₽</div><div class="metric-label">Маржинальность от очистки атрибуции (в год)</div></div>
+    <div class="digest">
+      <div class="digest-row">
+        <div class="digest-item"><div class="digest-num">5% → 17%</div><div class="digest-lbl">Рост retention</div></div>
+        <div class="digest-item"><div class="digest-num">99%</div><div class="digest-lbl">Идентификация продаж</div></div>
+        <div class="digest-item"><div class="digest-num">×2</div><div class="digest-lbl">Рост выручки</div></div>
+        <div class="digest-item"><div class="digest-num">×1,5</div><div class="digest-lbl">Рост маржинальности</div></div>
+        <div class="digest-item"><div class="digest-num">+50 млн ₽</div><div class="digest-lbl">От очистки атрибуции (в год)</div></div>
+        <div class="digest-item"><div class="digest-num">4</div><div class="digest-lbl">Международных внедрения</div></div>
+      </div>
     </div>
   </section>
   <!-- MEDIA -->
@@ -1150,6 +1221,24 @@
       <div class="section-note">
         Выступления и материалы, где видно подход и “как я думаю”.
       </div>
+    </div>
+    <blockquote class="pullquote">
+      «Дальше жить придётся не количеством сообщений, а качеством решений перед их отправкой».
+      <cite>— из интервью для CX Family</cite>
+    </blockquote>
+    <div class="panel" style="padding:0;overflow:hidden;margin-bottom:14px;">
+      <a href="https://my-cx-family.ru/feed/76/" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:18px;padding:20px 22px;text-decoration:none;color:inherit;flex-wrap:wrap;">
+        <div style="flex:0 0 auto;width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:var(--acc-soft);border:1px solid var(--acc-line);color:var(--acc);">
+          <svg viewBox="0 0 24 24" fill="none" style="width:24px;height:24px;opacity:.9;">
+            <path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div style="flex:1 1 260px;min-width:0;">
+          <h3 style="margin:0 0 4px;font-size:18px;">Интервью для CX Family</h3>
+          <p style="margin:0;font-size:16px;color:rgba(232,233,239,.84);">«CRM, который начинается не с рассылок, а с понимания клиента» — о first-party точках контакта, экономике касаний и системах вокруг поведения клиента.</p>
+        </div>
+        <span style="flex:0 0 auto;font-size:14px;font-weight:650;color:var(--acc);">Читать →</span>
+      </a>
     </div>
     <div class="grid">
       <div class="panel media-card col-6">
